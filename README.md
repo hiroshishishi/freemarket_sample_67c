@@ -12,7 +12,7 @@
 |birth_month|string|null: false|
 |birth_day|string|null: false|
 |password|string|null: false|
-|email|string|null: false|
+|email|string|null: false, unique: true|
 ### Association
 - has_many :items
 - has_many :likes dependent: :destroy
@@ -33,7 +33,7 @@
 |text|text|null: false|
 |condition|integer|null: false|
 |price|integer|null: false|
-|trading_status|integer|null: false|
+|trading_status|boolean|null: false|
 |completed_at|datetime|null: false|
 ### Association
 - belongs_to :user
@@ -65,7 +65,7 @@
 |city|string|null: false|
 |address1|string|null: false|
 |address2|string|null: false|
-|telephone|string|null: false|
+|telephone|string|null: false, unique: true|
 ### Association
 - belongs_to :user
 
