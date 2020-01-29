@@ -121,37 +121,13 @@
 |name|string|null: false|
 |ancestry|string||
 ### Association
-- has_many :brands
 - has_many :items
-- has_many :brand_groups, through: :category_brand_group
-- has_many :category_brand_groups
 - has_ancestry
 
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 ### Association
 - has_many :items
-- belongs_to :brand_group
-- belongs_to :category
 
-## brand_groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :brands
-- has_many :categories, through: :category_brand_group
-- has_many :category_brand_groups
-
-## category_brand_groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category_id|references|null: false, foreign_key: true|
-|brand_group_id|references|null: false, foreign_key: true|
-### Association
-- belongs_to :category
-- belongs_to :brand_group
