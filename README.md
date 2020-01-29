@@ -20,7 +20,7 @@
 - has_many :orders dependent: :destroy
 - has_many :comments dependent: :destroy
 - has_many :social_providers dependent: :destroy
-- has_one :delivery_adresses dependent: :destroy
+- has_one :delivery_addresses dependent: :destroy
 
 
 ## itemsテーブル
@@ -52,7 +52,7 @@
 ### Association
 - belongs_to :user
 
-## delivery_adressesテーブル
+## delivery_addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -63,8 +63,8 @@
 |zip_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
-|address1|string|null: false|
-|address2|string|null: false|
+|street|string|null: false|
+|block_room|string|null: false|
 |telephone|string|null: false, unique: true|
 ### Association
 - belongs_to :user
