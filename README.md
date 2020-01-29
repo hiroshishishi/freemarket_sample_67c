@@ -38,7 +38,6 @@
 ### Association
 - belongs_to :user
 - belongs_to :category
-- belongs_to :brand
 - has_many :likes dependent: :destroy
 - has_many :comments dependent: :destroy
 - has_many :item_image dependent: :destroy
@@ -123,11 +122,4 @@
 ### Association
 - has_many :items
 - has_ancestry
-
-## brandsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :items
 
