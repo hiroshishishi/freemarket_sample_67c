@@ -1,24 +1,125 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|lastname|string|null: false|
+|firstname|string|null: false|
+|lastname_kana|string|null: false|
+|firstname_kana|string|null: false|
+|birth_year|string|null: false|
+|birth_month|string|null: false|
+|birth_day|string|null: false|
+|password|string|null: false|
+|email|string|null: false, unique: true|
+### Association
+- has_many :items
+- has_many :likes dependent: :destroy
+- has_many :wallets dependent: :destroy
+- has_many :orders dependent: :destroy
+- has_many :comments dependent: :destroy
+- has_many :social_providers dependent: :destroy
+- has_one :delivery_addresses dependent: :destroy
 
-Things you may want to cover:
 
-* Ruby version
+## itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|seller_user_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|brand_id|references|null: false, foreign_key: true|
+|name|string|null: false|
+|text|text|null: false|
+|condition|integer|null: false|
+|price|integer|null: false|
+|trading_status|boolean|null: false|
+|completed_at|datetime|null: false|
+### Association
+- belongs_to :user
+- belongs_to :category
+- has_many :likes dependent: :destroy
+- has_many :comments dependent: :destroy
+- has_many :item_image dependent: :destroy
+- has_one :order 
 
-* System dependencies
 
-* Configuration
+## social_providersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|provider|string|null: false|
+### Association
+- belongs_to :user
 
-* Database creation
+## delivery_addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|lastname|string|null: false|
+|firstname|string|null: false|
+|lastname_kana|string|null: false|
+|firstname_kana|string|null: false|
+|zip_code|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|street|string|null: false|
+|block_room|string|null: false|
+|telephone|string|null: false, unique: true|
+### Association
+- belongs_to :user
 
-* Database initialization
+## walletsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|wallet|integer|null: false|
+### Association
+- belongs_to :user
 
-* How to run the test suite
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :item
 
-* Services (job queues, cache servers, search engines, etc.)
+## ordersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|buyer_user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :item
 
-* Deployment instructions
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+|text|text|null: false|
+### Association
+- belongs_to :user
+- belongs_to :item
 
-* ...
+## item_imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image_id|references|null: false, foreign_key: true|
+|image_url|string|null: false|
+### Association
+- belongs_to :item
+
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|path|text|null: false|
+|name|string|null: false|
+|ancestry|string||
+### Association
+- has_many :items
+- has_ancestry
+
