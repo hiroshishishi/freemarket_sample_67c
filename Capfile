@@ -1,3 +1,5 @@
+require "capistrano/setup"
+require "capistrano/deploy"
 # require "capistrano/scm/hg"
 # install_plugin Capistrano::SCM::Hg
 # or
@@ -21,8 +23,7 @@ install_plugin Capistrano::SCM::Git
 # require "capistrano/rvm"
 
 # require "capistrano/chruby"
-require "capistrano/setup"
-require "capistrano/deploy"
+
 require "capistrano/rbenv"
 require "capistrano/bundler"
 require "capistrano/rails/assets"
