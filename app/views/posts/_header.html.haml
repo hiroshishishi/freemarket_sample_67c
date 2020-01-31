@@ -1,0 +1,20 @@
+.header
+  .headerContents
+    .headerMain
+      = link_to "#" do
+        %h1.icon
+      = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
+        = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
+        = form.submit type: "submit", alt:"  ", class: "search-btn"
+        
+    .navi
+      %ul.navi__left-item
+        %li.navi__left-item__category
+          = link_to "カテゴリー", "#", class: "categoryBtn"
+        %li.navi__left-item__brand
+          = link_to "ブランド", "#", class: "brandBtn"
+      %ul.navi__right-item
+        %li.navi__right-item__login
+          = link_to "ログイン", "#", class: "loginBtn"
+        %li.navi__right-item__new
+          = link_to "新規会員登録", "#", class: "newBtn"

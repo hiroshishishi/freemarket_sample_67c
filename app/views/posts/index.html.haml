@@ -1,2 +1,163 @@
-%div
-  hellow!
+.wrapper
+  = render "header"
+  .body
+    .mainContents
+      .content
+        %h2
+          人生を変えるフリマアプリ
+        %p
+          FURIMAはだれでもかんたんに出品・購入できる
+          <br>
+          フリマアプリです
+        .btn
+          = image_tag("http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", height: "53.33px", width: "180px", class: 'aBtn')
+          = image_tag("http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", height: "53.33px", width: "180px", class: 'gBtn')
+
+    .topContents
+      %h2
+        FURIMAが選ばれる3つの理由
+      .lists
+        .list
+          .image01
+            .number
+              1
+          .text
+            %span< 3分
+            ですぐに出品
+          %p スマホで入力するだけで簡単に出品できる！
+        .list
+          .image02
+            .number
+              2
+          .text
+            %span< シンプル
+            で使いやすい
+          %p めんどくさい入力は必要なく、検索も購入もスムーズ！
+        .list
+          .image03
+            .number
+              3
+          .text
+            手数料
+            %span> 業界最安
+          %p 最大3%でお得に出品&購入！
+    .middleContents
+      .inner
+        %h2
+          会員数日本一位
+        %p
+          FURIMAは、フリマアプリで最も人気。
+          %br
+          出品・購入回数も業界最多です！
+          %br
+          ほしかったあの商品に出会えるかもしれません。
+        .inner__btn
+          = image_tag("http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", height: "53.33px", width: "180px", class: 'aBtn')
+          = image_tag("http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", height: "53.33px", width: "180px", class: 'gBtn')
+    .bottomContents
+      %h2
+        FURIMAの特徴
+      .lists
+        .list
+          .image01
+          %h3.list__subtiltle
+            簡単に売り買いできる
+          %p
+            スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+        .list
+          .image02
+          %h3.list__subtiltle
+            売上金は即日振込みに対応
+          %p
+            午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+        .list
+          .image03
+          %h3.list__subtiltle
+            様々な支払いに対応
+          %p
+            お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+    .pickupContent
+      %h2.pickupContent__title
+        ピックアップカテゴリー
+        .itemBox
+          .title
+            = link_to "新規投稿商品", "#", class: "subtitle"
+          .itemList
+            .item
+              = link_to "#" do
+                .item__image
+                .content
+                  %h3.title
+                    product3
+                  .text
+                    %ul 
+                      %li.price 30000円
+                      %li.likes ★0
+                    %p （税込）
+            .item
+              = link_to "#" do
+                .item__image
+                .content
+                  %h3.title
+                    product2
+                  .text
+                    %ul 
+                      %li.price 20000円
+                      %li.likes ★0
+                    %p （税込）
+            .item
+              = link_to "#" do
+                .item__image
+                .content
+                  %h3.title
+                    product1
+                  .text
+                    %ul 
+                      %li.price 10000円
+                      %li.likes ★0
+                    %p （税込）
+    .pickupContent
+      %h2.pickupContent__title
+        ピックアップブランド
+        .itemBox
+          .title
+            = link_to "アーカイバ", "#", class: "subtitle"
+          .itemList
+            .item
+              = link_to "#" do
+                .item__image
+                .content
+                  %h3.title
+                    product3
+                  .text
+                    %ul 
+                      %li.price 30000円
+                      %li.likes ★0
+                    %p （税込）
+            .item
+              = link_to "#" do
+                .item__image
+                .content
+                  %h3.title
+                    product2
+                  .text
+                    %ul 
+                      %li.price 20000円
+                      %li.likes ★0
+                    %p （税込）
+            .item
+              = link_to "#" do
+                .item__image
+                .content
+                  %h3.title
+                    product1
+                  .text
+                    %ul 
+                      %li.price 10000円
+                      %li.likes ★0
+                    %p （税込）
+  = render "footer"
+
+  = link_to "#", class:"purchaseBtn" do
+    %span> 出品する
+    .img
