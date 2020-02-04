@@ -569,3 +569,252 @@ aside {
     background-repeat: no-repeat;
   }
 }
+
+.wrapperItems {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  background: #f5f5f5;
+  height: auto;
+  width: auto;
+}
+.bodyItems {
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  width: max-content;
+  .itemInfo  {
+    width: 700px;
+    padding: 24px 40px 40px;
+    background: #fff;
+    display: block;
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      word-wrap: break-word;
+      line-height: 1.4;
+    }
+    .mainContent {
+      margin: 16px 0 0;
+      .imageContent {
+        display: flex;
+        position: relative;
+        .image {
+          display: flex;
+          flex-direction: column;
+          width: 560px;
+          align-items: center;
+          margin: 0 auto;
+          .bigImage {
+            object-fit: cover;
+            height: 346px;
+            width: 100%;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266");
+          }
+          .smallImage {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            width: 75%;
+            li {
+              width: 25%;
+              margin: 0 10px 0 0;
+              object-fit: cover;
+              height: 87px;
+            }
+            .image01 {
+              background-position: center;
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-image: url("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266");
+            }
+            .image02 {
+              background-position: center;
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-image: url("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266");
+            }
+            .image03 {
+              background-position: center;
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-image: url("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266");
+            }
+          }
+        }
+      }
+      .priceBox {
+        margin: 24px 0 24px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        .price {
+          font-size: 46px;
+          font-weight: bold;
+          margin: 0 10px 0 0;
+        }
+        .tax {
+          font-size: 16px;
+        }
+      }
+      .buyBtn {
+        font-size: 24px;
+        line-height: 60px;
+        display: block;
+        margin: 16px 0 32px 0;
+        background: #ea352d;
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .text {
+        line-height: 1.5;
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+      .detail {
+        margin-bottom: 20px;
+        .detailTable{
+          width: 100%;
+          border-collapse: collapse;
+          border: 1px solid #f8f8f8;
+          .table {
+            vertical-align: middle;
+            border-color: inherit;
+            ul {
+              display: flex;
+              vertical-align: inherit;
+              border-color: inherit;
+              .title {
+                width: 20%;
+                background-color: #eee;
+                font-weight: 400;
+                border: 1px solid #dedede;
+                font-size: 14px;
+                text-align: center;
+                padding: 15px 15px;
+                p {
+                  padding: 21px 10px;
+                }
+
+              }
+              .info {
+                width: 80%;
+                padding: 15px 15px;
+                border: 1px solid #dedede;
+                font-size: 14px;
+              }
+              a {
+                text-decoration: none;
+                color: #3CCACE;
+              }
+            }
+          }
+        }
+      }
+      .other {
+        display: flex;
+        justify-content: space-between;
+        .left {
+          margin: 10px 0 0;
+          display: flex;
+          .btn {
+            margin-right: auto;
+            padding: 6px 10px;
+            border-radius: 40px;
+            color: #3CCACE;
+            border: 1px solid #ffb340;
+            text-decoration: none;
+          }
+        }
+        .right {
+          margin: 10px 0 0;
+          display: flex;
+          .btn {
+            font-size: 14px;
+            text-decoration: none;
+            padding: 8px 10px 6px 10px;
+            display: inline-block;
+            border-radius: 4px;
+            color: #333;
+            border: 1px solid #333;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  .itemMessage {
+    width: 732px;
+    padding: 24px;
+    background-color: #fff;
+    margin: 10px 0;
+    text-align: center;
+    .messageBox {
+      .messageContent {
+        p {
+          padding: 8px;
+          font-size: 14px;
+          background-color: #f8f8f8;
+          margin: 10px 0 30px 0;
+          text-align: left;
+        }
+        .btn {
+          line-height: 48px;
+          background: #3CCACE;
+          border: 1px solid #3CCACE;
+          color: #fff;
+          width: 60%;
+          font-size: 18px;
+          border-radius: 100px;
+          text-decoration: none;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          padding-right: 130px;
+          padding-left: 130px;
+        }
+      }
+    }
+  }
+  .itemNavi {
+    width: 780px;
+    display: flex;
+    justify-content: space-between;
+    a {
+      color: #3CCACE;
+      text-decoration: none;
+    }
+    .prev {
+      width: 45%;
+      position: relative;
+      word-wrap: break-word;
+      i {
+        font-weight: bold;
+      }
+    }
+    .next {
+      width: 45%;
+      position: relative;
+      word-wrap: break-word;
+      text-align: right;
+      i {
+        font-weight: bold;
+      }
+    }
+  }
+  .categoryItems {
+    .categoryBtn {
+      display: block;
+      margin: 24px 0 8px;
+      color: #3CCACE;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 22px;
+      position: relative;
+    }
+  }
+}
