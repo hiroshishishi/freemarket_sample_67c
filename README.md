@@ -28,9 +28,9 @@
 |------|----|-------|
 |seller_user_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, foreign_key: true|
-|name|string|null: false|
+|name|string|null: false, index: true|
 |text|text|null: false|
+|brand|string||
 |condition|integer|null: false|
 |price|integer|null: false|
 |trading_status|boolean|null: false|
@@ -116,9 +116,7 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|path|text|null: false|
 |name|string|null: false|
-|ancestry|string||
 ### Association
 - has_many :items
 - has_ancestry
