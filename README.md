@@ -108,7 +108,7 @@
 ## item_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 |image_url|string|null: false|
 ### Association
 - belongs_to :item
