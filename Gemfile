@@ -78,3 +78,4 @@ gem "font-awesome-sass"
 gem 'dotenv-rails'
 gem "jquery-rails"
 gem 'payjp'
+gem 'active_hash'
