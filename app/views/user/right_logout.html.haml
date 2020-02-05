@@ -1,0 +1,10 @@
+= render 'posts/header'
+.user-main
+  = render 'my_left'
+  .my-right
+    .my-right__logout
+      %form{:action => "/cgi-bin/Logout.cgi",class:"logout-form", :method => "post", :name => "Logout"}
+        .my-right__logout__content
+          = link_to "ログアウト", root_path, class:"btn-logout",:type => "submit",method: "delete"
+          %input{:name => "action", :type => "hidden"}
+= render 'posts/footer'

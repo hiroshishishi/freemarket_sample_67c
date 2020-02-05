@@ -1,0 +1,13 @@
+= render 'posts/header'
+.user-main
+  = render 'my_left'
+  .my-right
+    %section.my-right__user
+      %a{:href => "index.html"}
+        %figure
+          = image_tag "icon/member_photo_noimage_thumb.png",size:"60x60"
+        %h2.bold 名前
+        .my-right__user__items
+          .my-right__user__items__assessment 評価
+          .my-right__user__items__number 出品数
+= render 'posts/footer'
