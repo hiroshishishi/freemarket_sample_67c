@@ -1,0 +1,38 @@
+.user-main__left
+  %nav.my-nav
+    %ul.my-nav__list
+      %li.my-nav__list__part 
+        = link_to "マイページ", "#"
+        %i.fas.fa-angle-right
+      %li.my-nav__list__part 
+        = link_to "いいね!一覧", "#"
+        %i.fas.fa-angle-right
+      %li.my-nav__list__part 
+        = link_to "出品する", "#"
+        %i.fas.fa-angle-right
+      %li.my-nav__list__part 
+        = link_to "出品した商品ー出品中", "#"
+        %i.fas.fa-angle-right
+      %li.my-nav__list__part 
+        = link_to "出品した商品ー取引中", "#"
+        %i.fas.fa-angle-right
+      %li.my-nav__list__part 
+        = link_to "出品した商品ー売却済", "#"
+        %i.fas.fa-angle-right
+      %li.my-nav__list__part 
+        = link_to "購入した商品ー取引中", "#"
+        %i.fas.fa-angle-right
+      %li.my-nav__list__part 
+        = link_to "購入した商品ー過去の取引", "#"
+        %i.fas.fa-angle-right
+    %h3.my-nav__list__title  設定
+    %ul.my-nav__list
+      %li.my-nav__list__part
+        = link_to "プロフィール", "#"
+        %i.fas.fa-angle-right
+      %li.my-nav__list__part
+        =link_to "クレジット",'#'
+        %i.fas.fa-angle-right
+      %li.my-nav__list__part 
+        =link_to "ログアウト",'#', method: :delete, class: 'btn'
+        %i.fas.fa-angle-right

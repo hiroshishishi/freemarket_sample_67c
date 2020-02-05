@@ -1,0 +1,20 @@
+= render 'posts/header'
+.user-main
+  = render 'my_left'
+  .my-right
+    %section.my-right__contents
+      %h2.my-right__contents__head 出品した商品
+      %ul.sell-tab
+        %li.active
+          %h3
+            %a{:href => "#"} 出品中
+        %li.active
+          %h3
+            %a{:href => "#"} 取引中
+        %li.active
+          %h3
+            %a{:href => "#"} 売却済み
+      .tab-content
+        .tab-content__box
+          .tab-content__box__deal
+= render 'posts/footer'
