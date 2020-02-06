@@ -26,7 +26,7 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|seller_user_id|references|null: false, foreign_key: true|
+|seller_user_id|references|null: false, foreign_key: {to_table: :users}|
 |category_id|references|null: false, foreign_key: true|
 |name|string|null: false, index: true|
 |text|text|null: false|
@@ -42,7 +42,7 @@
 - has_many :comments dependent: :destroy
 - has_many :item_image dependent: :destroy
 - has_one :order 
-
+- belongs_to_active_hash :prefecture
 
 ## social_providersテーブル
 |Column|Type|Options|
@@ -64,10 +64,12 @@
 |prefecture|string|null: false|
 |city|string|null: false|
 |street|string|null: false|
-|block_room|string|null: false|
-|telephone|string|null: false, unique: true|
+|block_room|string||
+|telephone|string|unique: true|
 ### Association
 - belongs_to :user
+- belongs_to_active_hash :prefecture
+
 
 ## walletsテーブル
 |Column|Type|Options|
@@ -89,7 +91,7 @@
 ## ordersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|buyer_user_id|references|null: false, foreign_key: true|
+|buyer_user_id|references|null: false, foreign_key: {to_table: :users}|
 |item_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -117,6 +119,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|ancestry|string||
 ### Association
 - has_many :items
 - has_ancestry
