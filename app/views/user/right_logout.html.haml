@@ -1,4 +1,4 @@
-= render 'posts/header'
+= render 'items/header'
 .user-main
   = render 'my_left'
   .my-right
@@ -7,4 +7,4 @@
         .my-right__logout__content
           = link_to "ログアウト", root_path, class:"btn-logout",:type => "submit",method: "delete"
           %input{:name => "action", :type => "hidden"}
-= render 'posts/footer'
+= render 'items/footer'

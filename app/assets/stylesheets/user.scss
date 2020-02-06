@@ -1,4 +1,5 @@
-body{
+.bodyUser{
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   background-repeat: no-repeat;
   background-color: whitesmoke;
   .user-main{
@@ -18,7 +19,7 @@ body{
           &__part{
             font-size: 14px;
             height: 48px;
-            width: 280px;
+            width: 248px;
             padding: 0px 16px;
             border-top: 1px solid #eee;
             position: relative;
@@ -29,16 +30,40 @@ body{
             }
             .fas.fa-angle-right{
               position: absolute;
-              top: 45%;
-              right: 50px;
-              color: #ccc;
+              top: 30%;
+              right: 15px;
+              color: #eee;
+              font-size: 20px;
+            }
+          }
+          &__mypage {
+            background: #eee;
+            font-weight: 600;
+            font-size: 14px;
+            height: 48px;
+            width: 248px;
+            padding: 0px 16px;
+            border-top: 1px solid #eee;
+            position: relative;
+            a {
+              position: absolute;
+              line-height: 48px;
+              text-decoration: none;
+              color: #333333;
+            }
+            .fas.fa-angle-right{
+              position: absolute;
+              top: 30%;
+              right: 15px;
+              color: #333;
+              font-size: 20px;
             }
           }
           &__title{
             padding: 30px 0 0 0;
             font-size: 16px;
             background-color: whitesmoke;
-            text-align: center;
+            font-weight: bold;
           }
         }
       }
@@ -54,6 +79,7 @@ body{
         position: relative;
         padding: 20px;
         text-align: center;
+        font-weight: bold;
         a{
           display: block;
           position: absolute;
@@ -67,6 +93,7 @@ body{
         }
         .bold{
           font-size: 14px;
+          font-weight: bold;
         }
         &__items{
           display: flex;

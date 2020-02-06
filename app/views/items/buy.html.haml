@@ -1,0 +1,46 @@
+.wrapperBuy
+  = render "subHeader"
+  .bodyBuy
+    .buyItemContent
+      %h2 購入内容の確認
+      .buyItemTop
+        .topInner
+          .topBox
+            .image
+            .text
+              %p.itemTitle ネクタイ
+              %p.itemPrice
+                %span ¥500
+                %span.fee （税込）送料込み
+      .buyItemBottom
+        .bottomInner
+          .bottomBox
+            .priceBox
+              %ul
+                %li.priceTitle 支払い金額
+                %li.price ¥500
+              %ul.point
+                = form_with(url: "#", local: true, method: :get, class: "checkBox") do |form|
+                  = form.submit name: "check", type: "checkbox", class:"pointBox"
+                %p ポイントを使用（所持ポイント: P0）
+            .pay
+              .payBox
+                .payTitle
+                  %h3 支払い方法
+                  = link_to "変更する", "#", class: "changeBtn"
+                .payInfo
+                  クレジットカード<br>
+                  ************2159<br>
+                  有効期限 08 / 17
+                  .payIcon
+            .userAddress
+              .addressInner
+                .addressTitle
+                  %h3 配送先
+                  = link_to "変更する", "#", class: "changeBtn"
+                .addressInfo
+                  〒000-0000<br>
+                  愛知県　名古屋市　緑区<br>
+                  コココココ１０１０
+            = link_to "購入する", "#", class: "buyBtn"
+  = render "subFooter"
