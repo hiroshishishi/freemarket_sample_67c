@@ -45,6 +45,11 @@ ActiveRecord::Schema.define(version: 2020_02_04_120349) do
     t.index ["user_id"], name: "index_delivery_addresses_on_user_id"
   end
 
+  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "seller_user_id", null: false
     t.bigint "category_id", null: false
@@ -88,17 +93,7 @@ ActiveRecord::Schema.define(version: 2020_02_04_120349) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", null: false
-    t.string "lastname", null: false
-    t.string "firstname", null: false
-    t.string "lastname_kana", null: false
-    t.string "firstname_kana", null: false
-    t.string "birth_year", null: false
-    t.string "birth_month", null: false
-    t.string "birth_day", null: false
-    t.string "password", null: false
-    t.string "name", null: false
-    t.string "email", null: false
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
