@@ -5,5 +5,6 @@ class Item < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :item_images, dependent: :destroy
   has_one :order
-  # belongs_to_active_hash :prefecture
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
 end
