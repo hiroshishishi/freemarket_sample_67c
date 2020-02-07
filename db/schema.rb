@@ -58,9 +58,10 @@ ActiveRecord::Schema.define(version: 2020_02_04_120349) do
     t.string "name", null: false
     t.text "text", null: false
     t.integer "condition", null: false
+    t.integer "fee", null: false
+    t.integer "delivery_day", null: false
     t.integer "price", null: false
     t.boolean "trading_status", null: false
-    t.datetime "completed_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
@@ -105,11 +106,6 @@ ActiveRecord::Schema.define(version: 2020_02_04_120349) do
     t.string "password", null: false
     t.string "email", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "zip_code", null: false
-    t.string "prefecture", null: false
-    t.string "city", null: false
-    t.string "street", null: false
-    t.string "block_room"
     t.string "telephone"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

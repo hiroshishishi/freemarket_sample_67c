@@ -13,11 +13,6 @@
 |birth_day|string|null: false|
 |password|string|null: false|
 |email|string|null: false, unique: true|
-|zip_code|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|street|string|null: false|
-|block_room|string||
 |telephone|string|unique: true|
 
 ### Association
@@ -39,9 +34,10 @@
 |text|text|null: false|
 |brand|string||
 |condition|integer|null: false|
+|fee|integer|null: false|
+|delivery_days|integer|null: false|
 |price|integer|null: false|
 |trading_status|boolean|null: false|
-|completed_at|datetime|null: false|
 ### Association
 - belongs_to :user
 - belongs_to :category
