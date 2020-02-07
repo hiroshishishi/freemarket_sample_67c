@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2020_02_04_120349) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,8 +39,8 @@ ActiveRecord::Schema.define(version: 2020_02_04_120349) do
     t.string "prefecture", null: false
     t.string "city", null: false
     t.string "street", null: false
-    t.string "block_room", null: false
-    t.string "telephone", null: false
+    t.string "block_room"
+    t.string "telephone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_delivery_addresses_on_user_id"
@@ -93,8 +94,23 @@ ActiveRecord::Schema.define(version: 2020_02_04_120349) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
+    t.string "nickname", null: false
+    t.string "lastname", null: false
+    t.string "firstname", null: false
+    t.string "lastname_kana", null: false
+    t.string "firstname_kana", null: false
+    t.string "birth_year", null: false
+    t.string "birth_month", null: false
+    t.string "birth_day", null: false
+    t.string "password", null: false
+    t.string "email", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "zip_code", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "street", null: false
+    t.string "block_room"
+    t.string "telephone"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

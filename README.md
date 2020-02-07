@@ -13,6 +13,13 @@
 |birth_day|string|null: false|
 |password|string|null: false|
 |email|string|null: false, unique: true|
+|zip_code|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|street|string|null: false|
+|block_room|string||
+|telephone|string|unique: true|
+
 ### Association
 - has_many :items
 - has_many :likes dependent: :destroy

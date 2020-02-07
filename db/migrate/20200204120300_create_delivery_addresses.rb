@@ -10,8 +10,8 @@ class CreateDeliveryAddresses < ActiveRecord::Migration[5.2]
       t.string :prefecture, null: false
       t.string :city, null: false
       t.string :street, null: false
-      t.string :block_room, null: false
-      t.string :telephone, null: false, unique: true
+      t.string :block_room
+      t.string :telephone,  unique: true
       t.timestamps
     end
   end
