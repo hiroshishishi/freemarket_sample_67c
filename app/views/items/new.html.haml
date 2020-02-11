@@ -12,10 +12,32 @@
                   出品画像
                   %span> 必須
                 %p 最大10枚までアップロードできます
-                .dropbox
-                  %ul.dropbox__image
-                    %li ドラッグアンドドロップ
-                    %li またはクリックしてファイルをアップロード
+                .dropbox-container
+                  .dropbox-upload
+                    -# .dropbox-1
+                    -#   %ul
+                    -#     %li.dropbox-item
+                    -#       %figure.dropbox-item-figure
+                    -#         %img.figure(src="assets/icon/icon_brand.png")
+                    -#       .dropbox-item-button
+                    -#         %a.button-edit 編集
+                    -#         %a.js-remove 削除
+                    .previews
+                    - if @item.persisted?
+                      - @item.item_images.each_with_index do |image, im|
+                        = image_tag image.src.url, data: { index: im }, width: "100", height: '100'
+                    = f.fields_for :item_images do |i|
+                      .dropbox.clearfix
+                        .js-file_group{"data-index" => "#{i.index}"}
+                          = i.file_field :image_url, class: 'js-file'
+                          %span.js-remove 削除
+                          %li クリックしてファイルをアップロード
+                        - if @item.persisted?
+                          = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+                    - if @item.persisted?
+                      .js-file_group{"data-index" => "#{@item.item_images.count}"}
+                        = file_field_tag :src, name: "product[images_attributes][#{@item.item_images.count}][src]", class: 'js-file'
+                        .js-remove 削除
               .free-content
                 .free-content__title
                   商品名
