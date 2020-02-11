@@ -956,10 +956,15 @@ aside {
             background: #f5f5f5;
             border: 1px dashed #ccc;
           }
-            .js-file_group{
-              text-align: center;
-              margin-top: 45px;
-              
+            li{
+              // text-align: center;
+              // margin-top: 45px;
+              .js-file{
+                // height: 100%;
+                // width: 100%;
+                // display:none;
+                // opacity: 0;
+              }
               li{
                 font-weight: bold;
                 word-break: break-all;

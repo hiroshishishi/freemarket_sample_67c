@@ -1,11 +1,8 @@
 $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (num)=> {
-    const html = `<div class="js-file_group" data-index="${num}">
+    const html = `<div class="input-btn" data-index="${num}">
                   <input class="js-file" type="file" name="[item_images][image_url]" id="_item_images_image_url">
-                  <spam>編集</spam>
-                  <span class="js-remove">削除</span>
-                  <li>クリックしてファイルをアップロード</li>
                   </div>`;
                   return html;
   }
@@ -31,7 +28,7 @@ $(document).on('turbolinks:load', ()=> {
   // file_fieldのnameに動的なindexをつける為の配列
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
    // 既に使われているindexを除外
-  lastIndex = $('.js-file_group:last').data('index');
+  lastIndex = $('.dropbox:last').data('index');
   fileIndex.splice(0, lastIndex);
 
   $('.hidden-destroy').hide();
@@ -48,7 +45,7 @@ $(document).on('turbolinks:load', ()=> {
     } else {  // 新規画像追加の処理
       $('.previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
-      $('.upload-box').append(buildFileField(fileIndex[0]));
+      $('.js-file_group').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)

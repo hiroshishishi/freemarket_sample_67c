@@ -28,10 +28,9 @@
                         = image_tag image.src.url, data: { index: im }, width: "100", height: '100'
                     = f.fields_for :item_images do |i|
                       .dropbox.clearfix
+                        = i.file_field :image_url, class: 'js-file'
+                        %li クリックしてファイルをアップロード
                         .js-file_group{"data-index" => "#{i.index}"}
-                          = i.file_field :image_url, class: 'js-file'
-                          %span.js-remove 削除
-                          %li クリックしてファイルをアップロード
                         - if @item.persisted?
                           = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
                     - if @item.persisted?
