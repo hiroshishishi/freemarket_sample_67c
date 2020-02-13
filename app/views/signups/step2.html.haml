@@ -1,0 +1,66 @@
+.address-information--header
+  .address-information--header--iron
+  %nav.address-information--header--bar
+    %ol
+      %li.address-information-header--bar--information1
+        会員情報<br>
+        .address-information-header--bar--iron1
+      %li.address-information-header--bar--information2
+        住所情報 <br>
+        .address-information-header--bar--iron2
+      %li.address-information-header--bar--information3
+        電話番号認証 <br>
+        .address-information-header--bar--iron3
+      %li.address-information-header--bar--information4
+        完了 <br>
+        .address-information-header--bar--iron4
+.address-information-main
+  .address-container
+    .address-container__title 住所情報入力
+    .address-container__content
+      = form_with model: @address, url: step3_signups_path, method: :get, local: true do |form|
+        .address-content--group--name
+          .address-content__name__tag
+            = form.label :お名前（全角）
+            .address-information-content__icon 必須
+          = form.text_field :firstname, class: "address-content__firstname__tag",placeholder: '  例）山田'
+          = form.text_field :lastname, class: "address-content__lastname__tag",placeholder: '  例）太郎'
+        .address-content--group--name
+          .address-content__name__tag
+            = form.label :お名前カナ（全角）
+            .address-information-content__icon 必須
+          = form.text_field :firstname_kana, class: "address-content__firstname__tag",placeholder: '  例）ヤマダ'
+          = form.text_field :lastname_kana, class: "address-content__lastname__tag",placeholder: '  例）タロウ'
+        .address-information--group
+          .address-information-content__tag
+            = form.label :郵便番号
+            .address-information-content__icon 必須
+          = form.text_field :zip_code, class: "address-information-content__form",placeholder: '  例)123-4567'
+        .address-information--group
+          .address-information-content__tag
+            = form.label :都道府県
+            .address-information-content__icon 必須
+          .address-information__form
+            %i.fas.fa-angle-down
+            = form.collection_select :prefecture_id, Prefecture.all, :id, :name
+        .address-information--group
+          .address-information-content__tag
+            = form.label :市区町村
+            .address-information-content__icon 必須
+          = form.text_field :city, class: "address-information-content__form",placeholder: '  例)横浜市緑区'
+        .address-information--group
+          .address-information-content__tag
+            = form.label :番地
+            .address-information-content__icon 必須
+          = form.text_field :street, class: "address-information-content__form",placeholder: '  例)青山1-1-1'
+        .address-information--group
+          .address-information-content__tag
+            = form.label :建物名
+          = form.text_field :block_room, class: "address-information-content__form",placeholder: '  例)柳ビル103'
+        .address-information--group
+          .address-information-content__tag
+            = form.label :電話
+          = form.text_field :telephone, class: "address-information-content__form",placeholder: '  例)090123456789'
+          .from-text-btn
+            = form.submit "次へ進む",class: "address-information-from-text-btn__tag"
+= render 'items/subFooter'

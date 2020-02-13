@@ -1,0 +1,19 @@
+.before-accounts
+  %header.before-header
+    %h1
+      %a.before-header__icon
+  .before-main
+    %section.before-container
+      %h2.before-container__title 新規会員登録
+      .before-container__content
+        .yet-contents
+          = link_to step1_signups_path,class: "yet-contents__email" do
+            = icon('far','envelope')
+            メールアドレスで登録する
+          = link_to '#',class: "yet-contents__facebook" do
+            = icon('fab','facebook-square')
+            Facebookで登録する
+          = link_to '#',class: "yet-contents__google" do
+            = icon('fab','google')
+            Googleで登録する
+= render 'items/subFooter'

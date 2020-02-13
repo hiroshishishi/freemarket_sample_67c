@@ -8,4 +8,13 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
+  resources :signups do
+    get 'log_in'
+    collection do
+      get 'step1'
+      get 'step2'
+      get 'step3'
+      get 'after'
+    end
+  end
 end

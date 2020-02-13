@@ -1,0 +1,74 @@
+.register-header
+  .formLogo
+  %nav.register-header--bar
+    %ol
+      %li.register-header--bar--information1
+        会員情報<br>
+        .register-header--bar--iron1
+      %li.register-header--bar--information2
+        住所情報 <br>
+        .register-header--bar--iron2
+      %li.register-header--bar--information3
+        電話番号認証 <br>
+        .register-header--bar--iron3
+      %li.register-header--bar--information4
+        完了 <br>
+        .register-header--bar--iron4
+.register-main
+  .register-container
+    .register-container__title 会員情報入力
+    .register-container__content
+      = form_with(model: @user,local:true,url: step2_signups_path, method: :get) do |form|
+        .register-content--group
+          .register-content__nickname
+            = form.label :ニックネーム
+            .register-content__icon 必須
+          = form.text_field :nickname, class: "register-content__nickname__form",placeholder: '  例)FURIMA太郎'
+        .register-content--group
+          .register-content__email
+            = form.label :メールアドレス
+            .register-content__icon 必須
+          = form.email_field :email, class: "register-content__email__form",placeholder: '  PC・携帯どちらでも可'
+        .register-content--group--password
+          .register-content__password
+            = form.label :パスワード
+            .register-content__icon 必須
+          = form.password_field :password, class: "register-content__password__form",placeholder: '  7文字以上の半角英数字'
+        .register-content__password__text ※英字と数字の両方を含めて設定してください
+        .register-content__password__display
+          %input{name: "password", type: "checkbox", value: "password"}>/
+          %label.register-content__password__display__box パスワードを表示する
+        .register-content__password__note 本人確認
+        .register-content__password__writing 安心・安全にご利用いただくために、お客さまの本人情報
+        .register-content__password__writing2 の登録にご協力ください。他のお客さまに公開されること
+        .register-content__password__writing3 はありません。
+        .register-content--group--name
+          .register-content__name__tag
+            = form.label :お名前（全角）
+            .register-content__icon 必須
+          = form.text_field :firstname, class: "register-content__firstname__tag",placeholder: '  例）山田'
+          = form.text_field :lastname, class: "register-content__lastname__tag",placeholder: '  例）太郎'
+        .register-content--group--name
+          .register-content__name__tag
+            = form.label :お名前カナ（全角）
+            .register-content__icon 必須
+          = form.text_field :firstname_kana, class: "register-content__firstname__tag",placeholder: '  例）ヤマダ'
+          = form.text_field :lastname_kana, class: "register-content__lastname__tag",placeholder: '  例）タロウ'
+        .register-content--group--birthday
+          .register-content__birthdays__tag
+            = form.label :生年月日
+            .register-content__icon 必須
+          .register-content__birth
+            != sprintf(form.date_select(:birthday, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+            .register-content__icon__arrow
+            .register-content--day--letter
+          .note__tag1 ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .note__tag2a「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+          .register-content--from-text-btn
+            = form.submit "次へ進む",class: "register-content--from-text-btn__tag"
+          .register-content--bottom
+            %p
+              = link_to "本人情報の登録について", "#"
+          .register-content--under
+            %p This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+= render 'items/subFooter'
