@@ -14,7 +14,7 @@
         = icon('fab','google')
         Googleでログイン
     .new-account--form 
-      = form_with(model: @user, local: true, url: signups_path, method: :get) do |form|
+      = form_with(model: @user, local: true, url: new_item_path, method: :get) do |form|
         .new-account--form--email
           = form.text_field :email, class: "new-new--email",placeholder: '  メールアドレス'
         .new-account--form--password
