@@ -18,7 +18,7 @@
   .address-container
     .address-container__title 住所情報入力
     .address-container__content
-      = form_with model: @address, url: register3_signups_path, method: :get, local: true do |form|
+      = form_with model: @address, url: thirdRegister_signups_path, method: :get, local: true do |form|
         .address-content--group--name
           .address-content__name__tag
             = form.label :お名前（全角）
