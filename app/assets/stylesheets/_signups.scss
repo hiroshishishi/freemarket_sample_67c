@@ -112,7 +112,7 @@
   }
 }
 
-// ログイン
+
 .new-account-header{
   height: 128px;
   display: flex;
@@ -250,118 +250,8 @@
     display: block;
   }
 }
-// // before
-// .new-account-header{
-//   width: 100%;
-//   height: 100px;
-//   background-color:#f0f0f0;
-// }
-//   .new-account-header--iron{
-//     padding-left: 580px;
-//     padding-top: 30px;
-//   }
-// .new-account-main{
-//   background-color: #f0f0f0;
-// }
-//   .new-account--title{
-//     background-color:white;
-//     width: 500px;
-//     height: 40px;
-//     margin:  0 auto;
-//     font-size: 14px;
-//     font-family:monospace;
-//     text-align: center;
-//     padding-top:34px;
-//   }
-//   .new-account--content{
-//     background-color:white;
-//     width: 500px;
-//     margin:  0 auto;
-//   }
-//     .new-account--button {
-//       display: inline-block;
-//       padding: 0.5em 1em;
-//       margin-left: 85px;
-//       margin-bottom: 60px;
-//       text-decoration: none;
-//       background:#3CCACE;
-//       color: #FFF;
-//       border-radius: 3px;
-//       width: 300px;
-//       height: 24px;
-//       text-align: center;
-//     }
-//     .new-account--button:active {
-//       -webkit-transform: translateY(4px);
-//       transform: translateY(4px);
-//       border-bottom: none;
-//     } 
-//     .new-account--facebook--button{
-//       display: inline-block;
-//       padding: 0.5em 1em;
-//       margin-left: 85px;
-//       margin-bottom: 60px;
-//       text-decoration: none;
-//       background:#4169E1;
-//       color: #FFF;
-//       border-radius: 3px;
-//       width: 300px;
-//       height: 24px;
-//       text-align: center;
-//       font-size: 14px;
-//     }
-//     .new-account--facebook--button:active {
-//       -webkit-transform: translateY(4px);
-//       transform: translateY(4px);
-//       border-bottom: none;
-//     }
-//     .new-account--google--button{
-//       display: inline-block;
-//       padding: 0.5em 1em;
-//       margin-left: 85px;
-//       margin-bottom: 60px;
-//       text-decoration: none;
-//       background:white;
-//       color: black;
-//       border-radius: 3px;
-//       width: 300px;
-//       height: 24px;
-//       text-align: center;
-//       font-size: 14px;
-//       border:black solid 1px;
-//     }
-//     .new-account--google--button:active {
-//       -webkit-transform: translateY(4px);
-//       transform: translateY(4px);
-//       border-bottom: none;
-//     } 
-//       .new-account--email{
-//         width: 330px;
-//         height: 40px;
-//         margin-left: 80px;
-//         margin-bottom: 20px;
-//       }
-//       .new-account--password{
-//         width: 330px;
-//         height: 40px;
-//         margin-left: 80px;
-//         margin-top: 20px;
-//       }
-//       .new-account--login--button{
-//         width: 335px;
-//         height: 50px;
-//         margin-left: 80px;
-//         margin-top: 50px;
-//         background: red;
-//         color: white;
-//       }
-//       .new-account--password--forget{
-//         color:#3CCACE;
-//         font-size: 14px;
-//         padding-top: 30px;
-//         padding-left: 77px;
-//       }
-// step1
+
+
 .register-header{
   height: 128px;
   display: flex;
@@ -715,7 +605,7 @@
             font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
           }
         }
-  // 共有（必須アイコン）
+
     .register-content__icon{
       background:#3CCACE;
       display: inline-block;
@@ -728,7 +618,8 @@
     }
   }
 }
-// step2
+
+
 .address-information--header{
   height: 128px;
   display: flex;
@@ -961,7 +852,8 @@
     }
   }
 }
-  // 共有（必須アイコン）
+
+
 .address-information-content__icon{
   background: #3CCACE;
   display: inline-block;
@@ -972,7 +864,8 @@
   vertical-align: top;
   margin: 0 0 8px 8px;
 }
-  // step3
+
+
 .phone-number--header{
   height: 128px;
   display: flex;
