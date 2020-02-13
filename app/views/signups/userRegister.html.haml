@@ -18,7 +18,7 @@
   .register-container
     .register-container__title 会員情報入力
     .register-container__content
-      = form_with(model: @user,local:true,url: secondRegister_signups_path, method: :get) do |form|
+      = form_with(model: @user,local:true,url: addressRegister_signups_path, method: :get) do |form|
         .register-content--group
           .register-content__nickname
             = form.label :ニックネーム
