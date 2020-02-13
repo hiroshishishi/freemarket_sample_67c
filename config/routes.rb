@@ -11,10 +11,10 @@ Rails.application.routes.draw do
   resources :signups do
     get 'log_in'
     collection do
-      get 'userRegister'
-      get 'addressRegister'
-      get 'phoneRegister'
-      get 'doneRegister'
+      get 'user_register'
+      get 'address_register'
+      get 'phone_register'
+      get 'done_register'
     end
   end
 end
