@@ -18,7 +18,7 @@
   .member-container
     .member-container__title 会員登録完了
     .member-container__content
-      = form_with model: @user, url: new_item_path, method: :get, local: true do |form|
+      = form_with model: @user, url: items_path, method: :get, local: true do |form|
         .member-registration--content--text
           ありがとうございます。
           %br 会員登録が完了しました。
