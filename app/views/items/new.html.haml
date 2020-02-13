@@ -12,31 +12,26 @@
                   出品画像
                   %span> 必須
                 %p 最大10枚までアップロードできます
-                .dropbox-container
-                  .dropbox-upload
-                    -# .dropbox-1
-                    -#   %ul
-                    -#     %li.dropbox-item
-                    -#       %figure.dropbox-item-figure
-                    -#         %img.figure(src="assets/icon/icon_brand.png")
-                    -#       .dropbox-item-button
-                    -#         %a.button-edit 編集
-                    -#         %a.js-remove 削除
-                    .previews
-                    - if @item.persisted?
-                      - @item.item_images.each_with_index do |image, im|
-                        = image_tag image.src.url, data: { index: im }, width: "100", height: '100'
-                    = f.fields_for :item_images do |i|
-                      .dropbox.clearfix
-                        = i.file_field :image_url, class: 'js-file'
-                        %li クリックしてファイルをアップロード
-                        .js-file_group{"data-index" => "#{i.index}"}
-                        - if @item.persisted?
-                          = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
-                    - if @item.persisted?
-                      .js-file_group{"data-index" => "#{@item.item_images.count}"}
-                        = file_field_tag :src, name: "product[images_attributes][#{@item.item_images.count}][src]", class: 'js-file'
-                        .js-remove 削除
+                .dropbox
+                  .preview-content
+                  .label-content
+                    %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                      %pre.label-box__text クリックしてファイルをアップロード
+                  .hidden-content
+                    = f.fields_for :images do |i|
+                      = i.file_field :src, id: "item_images_attributes_0_image",  class: 'hidden-field'
+                      %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                      %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                      %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                      %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+                    -#   .dropbox.clearfix
+                    -#     .js-file_group{"data-index" => "#{i.index}"}
+                    -#     - if @item.persisted?
+                    -#       = i.check_box :_destroy, data:{ index: i.index }, class: 'hidden-destroy'
+                    -# - if @item.persisted?
+                    -#   .js-file_group{"data-index" => "#{@item.images.count}"}
+                    -#     = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                    -#     .js-remove 削除
               .free-content
                 .free-content__title
                   商品名
