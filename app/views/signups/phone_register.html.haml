@@ -17,7 +17,7 @@
   .phone-container
     .phone-container__title 電話番号の確認
     .phone-container__content
-      = form_with model: @user,url: done_register_signups_path, method: :post do |form|
+      = form_with model: @user,url: signups_path, method: :post, local: :ture do |form|
         .phone-number--group 
           .phone-number__text 携帯電話の番号
           = form.text_field :telephone, class: "phone-number__form",placeholder: '  携帯電話の番号を入力'
