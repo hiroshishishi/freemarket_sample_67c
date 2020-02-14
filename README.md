@@ -30,7 +30,7 @@
 |------|----|-------|
 |seller_user_id|references|null: false, foreign_key: {to_table: :users}|
 |category_id|references|null: false, foreign_key: true|
-|name|string|null: false, index: true|
+|title|string|null: false, index: true|
 |text|text|null: false|
 |brand|string||
 |condition|integer|null: false|
@@ -110,7 +110,7 @@
 - belongs_to :user
 - belongs_to :item
 
-## item_imagesテーブル
+## itemImagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|

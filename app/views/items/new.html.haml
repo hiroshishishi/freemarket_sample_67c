@@ -6,27 +6,38 @@
         .inner
           %h1.inner__title 商品の情報を入力
           .form
-            = form_with(model:@items, local:true) do |f|
+            = form_with url: items_path, method: "POST", local:true do |f|
               .upload-box
                 .title
                   出品画像
                   %span> 必須
                 %p 最大10枚までアップロードできます
                 .dropbox
-                  %ul.dropbox__image
-                    %li ドラッグアンドドロップ
-                    %li またはクリックしてファイルをアップロード
+                  .preview-content
+                  .label-content
+                    %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+                      %pre.label-box__text クリックしてファイルをアップロード
+                  .hidden-content
+                    = f.fields_for :images do |i|
+                      = i.file_field :src, id: "item_images_attributes_0_image",  class: 'hidden-field'
+                      %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                      %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                      %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                      %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_4_image" }
+                  %span#image_error.error_m
               .free-content
                 .free-content__title
                   商品名
                   %span> 必須
                 %div
-                = f.text_field :name, placeholder:"商品名（必須 40文字まで)", class:"free-content__form"
+                = f.text_field :title, placeholder:"商品名（必須 40文字まで)", class:"free-content__form"
+                %span#title_error.error_m
                 .free-content__explain
                   商品の説明
                   %span> 必須
                 %div
                 = f.text_area :text, placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）\r\n2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:"free-content__formCategory"
+                %span#text_error.error_m
               .content-sell.clearfix
                 %h3.content-sell__head 商品の詳細
                 .content-sell__formbox
@@ -35,9 +46,16 @@
                     %span> 必須
                     %div
                     .content-sell__formbox__category__select__child
-                      = f.select :category, @category_parent_array, {}, {class: "content-sell__formbox__category__select__form", id: 'parent_category'}
+                      = f.collection_select :category, @categories, :id, :name, {prompt: "---"}, {class: "content-sell__formbox__category__select__form", id: 'parent_category'}
                       %i.content-sell__formbox__category__select__btn
                         =icon('fa', 'chevron-down')
+                  %span#category_error.error_m
+                  .content-sell__formbox__brand
+                    %label ブランド
+                    %span.free> 任意
+                    %div
+                    .content-sell__formbox__brand__input
+                      = f.text_field :brand, placeholder:"例)シャネル", class:"free-content__form"
                   .content-sell__formbox__status
                     %label 商品の状態
                     %span> 必須
@@ -45,7 +63,8 @@
                     .content-sell__formbox__status__select
                       %i.content-sell__formbox__status__select__btn
                         =icon('fa', 'chevron-down')
-                      = f.select :condition, Item.conditions.keys, {}, {class:"content-sell__formbox__status__select__form"}
+                      = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__status__select__form", id: 'condition'}
+                  %span#condition_error.error_m
               .content-sell.clearfix
                 %h3.content-sell__head 配送について
                 %a.content-sell__question{href: "#", target: "_blank"} ?
@@ -57,7 +76,8 @@
                     .content-sell__formbox__group__select
                       %i.content-sell__formbox__group__select__btn
                         =icon('fa', 'chevron-down')
-                      = f.select :fee, Item.fees.keys, {}, {class:"content-sell__formbox__group__select__form"}
+                      = f.collection_select :fee_id, Fee.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__group__select__form", id: 'fee'}
+                  %span#fee_error.error_m
                   .content-sell__formbox__status
                     %label 発送元の地域
                     %span> 必須
@@ -65,7 +85,8 @@
                     .content-sell__formbox__status__select
                       %i.content-sell__formbox__status__select__btn
                         =icon('fa', 'chevron-down')
-                      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {}, {class: 'content-sell__formbox__status__select__form'}
+                      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'content-sell__formbox__status__select__form', id: 'prefecture'}
+                  %span#prefecture_error.error_m
                   .content-sell__formbox__status
                     %label 発送までの日数
                     %span> 必須
@@ -73,7 +94,8 @@
                     .content-sell__formbox__status__select
                       %i.content-sell__formbox__status__select__btn
                         =icon('fa', 'chevron-down')
-                      = f.select :delivery_day, Item.delivery_days.keys, {}, {class:"content-sell__formbox__status__select__form"}
+                      = f.collection_select :deliveryday_id, Deliveryday.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__status__select__form", id: 'deliveryday'}
+                  %span#deliveryday_error.error_m
               .content-sell.clearfix
                 %h3.content-sell__head 販売価格(300〜9,999,999)
                 %a.content-sell__question{href: "#", target: "_blank"} ?
@@ -86,7 +108,8 @@
                           %span> 必須
                         .content-sell__formbox__group__input
                           .content-sell__formbox__group__input__icon ¥
-                          %input.content-sell__formbox__group__input__box{placeholder: "例) 300"}
+                          = f.number_field :price, type: "input", class: "content-sell__formbox__group__input__box", placeholder: "例) 300", id: 'price'
+                    %span#price_error.error_m
                     %li.content-sell__formbox__tax
                       .content-sell__formbox__tax__left 販売手数料(10%)
                       .content-sell__formbox__tax__right -
@@ -108,6 +131,6 @@
                     また、出品をもちまして
                     %a{href: "#", target: "_blank"}加盟店規約
                     に同意したことになります。
-                %button.content-sell__red-btn{type: "submit"} 出品する
-                %a.content-sell__gray-btn もどる
+                = f.submit class: "content-sell__red-btn", id: "btn_submit", value: "出品する"
+                = link_to "もどる", "/", class: "content-sell__gray-btn"
     = render "subFooter"
