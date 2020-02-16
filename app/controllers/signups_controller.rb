@@ -82,6 +82,10 @@ class SignupsController < ApplicationController
       birth_month: session[:birth_month],
       birth_day: session[:birth_day]
     )
+    unless @user.valid?
+      flash.now[:alert] = @user.errors.full_messages
+      render '/signups/user_register' and return
+    end
     if @user.save
       session[:id] = @user.id
       redirect_to done_register_signups_path
@@ -98,6 +102,10 @@ class SignupsController < ApplicationController
         lastname_kana: session[:lastname_kana], 
         firstname_kana: session[:firstname_kana]
       )
+      unless @address.valid?
+        flash.now[:alert] = @address.errors.full_messages
+        render '/signups/user_register' and return
+      end
     else
       render '/signups/index'
     end
