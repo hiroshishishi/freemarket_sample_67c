@@ -33,7 +33,6 @@ class ItemsController < ApplicationController
 
   def set_categories
     @categories = Category.where(ancestry: nil)
-    @category_parent_array = ["---"]
     @category_parent_array = Category.pluck(:name)
   end
 
