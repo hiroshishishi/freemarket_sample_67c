@@ -20,11 +20,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(item_params)
-    binding.pry
+    @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
-    else
     end
   end
 
@@ -36,9 +34,7 @@ class ItemsController < ApplicationController
   def set_categories
     @categories = Category.where(ancestry: nil)
     @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    @category_parent_array << Category.pluck(:name)
   end
 
   def item_params
