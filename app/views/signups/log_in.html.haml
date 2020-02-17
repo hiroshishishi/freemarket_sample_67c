@@ -1,0 +1,25 @@
+.new-account-header
+  .new-account-header--iron
+.new-account-main
+  .account-container
+    .no-LogIn-form
+      %p アカウントをお持ちでない方はこちら
+      = link_to signups_path, class: "new-new--button" do
+        新規会員登録
+    .account-container__content
+      = link_to '#',class: "new-new--facebook--button" do
+        = icon('fab','facebook-square')
+        Facebookでログイン
+      = link_to '#',class: "new-new--google--button" do
+        = icon('fab','google')
+        Googleでログイン
+    .new-account--form 
+      = form_with(model: @user, local: true, url: items_path, method: :get) do |form|
+        .new-account--form--email
+          = form.text_field :email, class: "new-new--email",placeholder: '  メールアドレス'
+        .new-account--form--password
+          = form.text_field :password, class: "new-new--password",placeholder: '  パスワード'
+        = form.submit "ログイン",class: "new-new--login--button"
+        = link_to '#',class: "new-new--password--forget" do
+          パスワードをお忘れの方
+= render 'items/subFooter'

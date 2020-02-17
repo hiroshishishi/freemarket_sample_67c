@@ -1,0 +1,27 @@
+.member-registration--header
+  .member-registration--header--iron
+  %nav.member-registration--bar
+    %ol
+      %li.member-registration-header--bar--information1
+        会員情報<br>
+        .member-registration-header--bar--iron1
+      %li.member-registration-header--bar--information2
+        住所情報 <br>
+        .member-registration-header--bar--iron2
+      %li.member-registration-header--bar--information3
+        電話番号認証 <br>
+        .member-registration-header--bar--iron3
+      %li.member-registration-header--bar--information4
+        完了 <br>
+        .member-registration-header--bar--iron4
+.member-registration--main
+  .member-container
+    .member-container__title 会員登録完了
+    .member-container__content
+      = form_with model: @user, url: items_path, method: :get, local: true do |form|
+        .member-registration--content--text
+          ありがとうございます。
+          %br 会員登録が完了しました。
+        .member-registration-btn
+          = form.submit "フリマをはじめる",class: "member-registration-btn__tag"
+= render 'items/subFooter'
