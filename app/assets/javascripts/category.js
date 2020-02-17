@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function(){
   $(function(){
     // カテゴリーセレクトボックスのオプションを作成
     function appendOption(category){
-      var html = `<option value="${category.id}" data-category="${category.name}">${category.name}</option>`;
+      var html = `<option data-category=${category.id}>${category.name}</option>`;
       return html;
     }
     // 子カテゴリーの表示作成
@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function(){
       childSelectHtml = `<div class='content-sell__formbox__category__select__child__added' id= 'children_wrapper'>
                           <div class='content-sell__formbox__category__select__child'>
                             <select class="content-sell__formbox__category__select__child--select" id="child_category">
-                              <option category_id="---">---</option>
+                              <option value="---" data-category="---">---</option>
                               ${insertHTML}
                             <select>
                             <i class='fa fa-chevron-down content-sell__formbox__category__select__btnChild'></i>
@@ -25,7 +25,7 @@ $(document).on('turbolinks:load', function(){
       grandchildSelectHtml = `<div class='content-sell__formbox__category__select__child__added' id= 'grandchildren_wrapper'>
                                 <div class='content-sell__formbox__category__select__child'>
                                   <select class="content-sell__formbox__category__select__child--select" id="grandchild_category">
-                                    <option category_id="---">---</option>
+                                    <option value="---" data-category="---">---</option>
                                     ${insertHTML}
                                   </select>
                                   <i class='fa fa-chevron-down content-sell__formbox__category__select__btnChild'></i>
@@ -66,7 +66,7 @@ $(document).on('turbolinks:load', function(){
     });
     // 子カテゴリー選択後のイベント
     $('.content-sell__formbox__category').on('change', '#child_category', function(){
-      var childId = $('#child_category option:selected').val(); //選択された子カテゴリーのidを取得
+      var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
       if (childId != "---"){ //子カテゴリーが初期値でないことを確認
         $.ajax({
           url: 'get_category_grandchildren', 
