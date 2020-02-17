@@ -22,12 +22,7 @@
           .phone-number__icon 必須
           .phone-number__text 携帯電話の番号
           = form.text_field :telephone, class: "phone-number__form",placeholder: '  携帯電話の番号を入力'
-          .user-form__errors
-            - if @user.errors.any?
-              %ul
-                -@user.errors.full_messages_for(:telephone).each do |message|
-                  %li
-                    =message
+          = render partial: 'user_errors', locals: {user: @user, column: "telephone"}
         .phone-number-btn
           = form.submit "登録する",class: "phone-number-btn__tag"
 = render 'items/subFooter'

@@ -24,45 +24,25 @@
             = form.label :ニックネーム
             .register-content__icon 必須
           = form.text_field :nickname, class: "register-content__nickname__form",placeholder: '  例)FURIMA太郎'
-          .user-form__errors
-            - if @user.errors.any?
-              %ul
-                -@user.errors.full_messages_for(:nickname).each do |message|
-                  %li
-                    =message
+          = render partial: 'user_errors', locals: {user: @user, column: "nickname"}
         .register-content--group
           .register-content__email
             = form.label :メールアドレス
             .register-content__icon 必須
           = form.email_field :email, class: "register-content__email__form",placeholder: '  PC・携帯どちらでも可'
-          .user-form__errors
-            - if @user.errors.any?
-              %ul
-                -@user.errors.full_messages_for(:email).each do |message|
-                  %li
-                    =message
+          = render partial: 'user_errors', locals: {user: @user, column: "email"}
         .register-content--group--password
           .register-content__password
             = form.label :パスワード
             .register-content__icon 必須
           = form.password_field :password, class: "register-content__password__form",placeholder: '  7文字以上の半角英数字'
-          .user-form__errors
-            - if @user.errors.any?
-              %ul
-                -@user.errors.full_messages_for(:password).each do |message|
-                  %li
-                    =message
+          = render partial: 'user_errors', locals: {user: @user, column: "password"}
           .register-content__password__text ※英字と数字の両方を含めて設定してください
           .register-content__password
             = form.label :確認用パスワード
             .register-content__icon 必須
           = form.password_field :password_confirmation, class: "register-content__password__form",placeholder: '  7文字以上の半角英数字'
-          .user-form__errors
-            - if @user.errors.any?
-              %ul
-                -@user.errors.full_messages_for(:password_confirmation).each do |message|
-                  %li
-                    =message
+          = render partial: 'user_errors', locals: {user: @user, column: "password_confirmation"}
         .register-content__password__display
         .register-content__password__note 本人確認
         .register-content__password__writing 安心・安全にご利用いただくために、お客さまの本人情報
@@ -74,60 +54,26 @@
             .register-content__icon 必須
           = form.text_field :firstname, class: "register-content__firstname__tag",placeholder: '  例）山田'
           = form.text_field :lastname, class: "register-content__lastname__tag",placeholder: '  例）太郎'
-          .user-form__errors
-            - if @user.errors.any?
-              %ul
-                -@user.errors.full_messages_for(:firstname).each do |message|
-                  %li
-                    =message
-          .user-form__errors
-            - if @user.errors.any?
-              %ul
-                -@user.errors.full_messages_for(:lastname).each do |message|
-                  %li
-                    =message
+          = render partial: 'user_errors', locals: {user: @user, column: "firstname"}
+          = render partial: 'user_errors', locals: {user: @user, column: "lastname"}
         .register-content--group--name
           .register-content__name__tag
             = form.label :お名前カナ（全角）
             .register-content__icon 必須
           = form.text_field :firstname_kana, class: "register-content__firstname__tag",placeholder: '  例）ヤマダ'
           = form.text_field :lastname_kana, class: "register-content__lastname__tag",placeholder: '  例）タロウ'
-          .user-form__errors
-            - if @user.errors.any?
-              %ul
-                -@user.errors.full_messages_for(:firstname_kana).each do |message|
-                  %li
-                    =message
-          .user-form__errors
-            - if @user.errors.any?
-              %ul
-                -@user.errors.full_messages_for(:lastname_kana).each do |message|
-                  %li
-                    =message
+          = render partial: 'user_errors', locals: {user: @user, column: "firstname_kana"}
+          = render partial: 'user_errors', locals: {user: @user, column: "lastname_kana"}
         .register-content--group--birthday
           .register-content__birthdays__tag
             = form.label :生年月日
             .register-content__icon 必須
           .register-content__birth
             != sprintf(form.date_select(:birthday, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
-          .user-form__errors
-          - if @user.errors.any?
-            %ul
-              -@user.errors.full_messages_for(:birth_year).each do |message|
-                %li
-                  =message
-          .user-form__errors
-          - if @user.errors.any?
-            %ul
-              -@user.errors.full_messages_for(:birth_month).each do |message|
-                %li
-                  =message
-          .user-form__errors
-          - if @user.errors.any?
-            %ul
-              -@user.errors.full_messages_for(:birth_day).each do |message|
-                %li
-                  =message
+          .user-errors-messages
+            = render partial: 'user_errors', locals: {user: @user, column: "birth_year"}
+            = render partial: 'user_errors', locals: {user: @user, column: "birth_month"}
+            = render partial: 'user_errors', locals: {user: @user, column: "birth_day"}
             .register-content__icon__arrow
             .register-content--day--letter
           .note__tag1 ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
