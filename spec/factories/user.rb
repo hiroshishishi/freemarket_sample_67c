@@ -7,9 +7,9 @@ FactoryBot.define do
     firstname               {"太郎"}
     lastname_kana           {"タナカ"}
     firstname_kana          {"タロウ"}
-    birth_year              {2000}
-    birth_month             {12}
-    birth_day               {31}
+    birth_year              {"2000"}
+    birth_month             {"12"}
+    birth_day               {"31"}
     password                {password}
     password_confirmation   {password}
     email                   {Faker::Internet.free_email}

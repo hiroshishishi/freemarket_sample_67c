@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     @item.images.new
     
     def get_category_children
-      @category_children = Category.find(params[:parent_name]).children
+      @category_children = Category.find_by("#{params[:parent_name]}").children
     end
   
     def get_category_grandchildren
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   def set_categories
     @categories = Category.where(ancestry: nil)
     @category_parent_array = ["---"]
-    @category_parent_array << Category.pluck(:name)
+    @category_parent_array = Category.pluck(:name)
   end
 
   def item_params

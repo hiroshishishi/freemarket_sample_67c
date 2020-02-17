@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_02_13_101222) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -30,17 +29,11 @@ ActiveRecord::Schema.define(version: 2020_02_13_101222) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "item_id", null: false
-    t.string "src", null: false
-
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "ancestry"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -51,6 +44,14 @@ ActiveRecord::Schema.define(version: 2020_02_13_101222) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_comments_on_item_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.string "src", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -108,7 +109,6 @@ ActiveRecord::Schema.define(version: 2020_02_13_101222) do
     t.string "birth_month", null: false
     t.string "birth_day", null: false
     t.string "email", null: false
-
     t.string "encrypted_password", default: "", null: false
     t.string "telephone", null: false
     t.string "reset_password_token"
@@ -137,7 +137,6 @@ ActiveRecord::Schema.define(version: 2020_02_13_101222) do
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
   add_foreign_key "images", "items"
-
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
