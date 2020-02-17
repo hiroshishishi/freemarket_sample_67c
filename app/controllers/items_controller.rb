@@ -8,10 +8,10 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.images.new
+    @item.images.build
     
     def get_category_children
-      @category_children = Category.find_by("#{params[:parent_name]}").children
+      @category_children = Category.find(params[:parent_name]).children
     end
   
     def get_category_grandchildren
@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    binding.pry
     if @item.save
       redirect_to root_path
     end
@@ -37,6 +38,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.permit(:category, :brand, :title, :text, :condition_id, :prefecture_id, :fee_id, :deliveryday_id, :price, images_attributes: [:src]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:category_id, :brand, :title, :text, :condition_id, :prefecture_id, :fee_id, :deliveryday_id, :price, images_attributes: [:src]).merge(seller_id: current_user.id)
   end
 end

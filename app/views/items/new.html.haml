@@ -6,7 +6,7 @@
         .inner
           %h1.inner__title 商品の情報を入力
           .form
-            = form_with url: items_path, method: "POST", local:true do |f|
+            = form_with model: @item, url: items_path, method: "POST", local:true do |f|
               .upload-box
                 .title
                   出品画像
@@ -46,7 +46,7 @@
                     %span> 必須
                     %div
                     .content-sell__formbox__category__select__child
-                      = f.collection_select :category, @categories, :id, :name, {prompt: "---"}, {class: "content-sell__formbox__category__select__form", id: 'parent_category'}
+                      = f.collection_select :category_id, @categories, :id, :name, {prompt: "---"}, {class: "content-sell__formbox__category__select__form", id: 'parent_category'}
                       %i.content-sell__formbox__category__select__btn
                         =icon('fa', 'chevron-down')
                   %span#category_error.error_m
