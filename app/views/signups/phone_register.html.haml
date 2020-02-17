@@ -1,0 +1,28 @@
+.phone-number--header
+  .phone-number--header--iron
+  .phone-number--header--bar
+    .phone-number-header--bar--information1
+      会員情報<br>
+      .phone-number-header--bar--iron1
+    .phone-number-header--bar--information2
+      住所情報 <br>
+      .phone-number-header--bar--iron2
+    .phone-number-header--bar--information3
+      電話番号認証 <br>
+      .phone-number-header--bar--iron3
+    .phone-number-header--bar--information4
+      完了 <br>
+      .phone-number-header--bar--iron4
+.phone-number--main
+  .phone-container
+    .phone-container__title 電話番号の確認
+    .phone-container__content
+      = form_with model: @user,url: signups_path, method: :post, local: :ture do |form|
+        .phone-number--group 
+          .phone-number__icon 必須
+          .phone-number__text 携帯電話の番号
+          = form.text_field :telephone, class: "phone-number__form",placeholder: '  携帯電話の番号を入力'
+          = render partial: 'user_errors', locals: {user: @user, column: "telephone"}
+        .phone-number-btn
+          = form.submit "登録する",class: "phone-number-btn__tag"
+= render 'items/subFooter'

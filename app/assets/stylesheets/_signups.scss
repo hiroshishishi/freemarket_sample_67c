@@ -1,0 +1,1230 @@
+.before-accounts{
+  padding: 40px 0 220px;
+  background-color: #f5f5f5;
+  .before-header{
+    height: 80px;
+    .before-header__icon{
+      line-height: 128px;
+      height: 49px;
+      background-image: image-url("logo/logo.png");
+      display: block;
+      padding-bottom: 10px;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+  .before-main{
+    .before-container{
+      width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      background: #fff;
+      &__title{
+        font-size: 22px;
+        padding: 32px;
+        font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+      }
+      &__content{
+        padding: 40px 40px 64px;
+        border-top: 1px solid #f5f5f5;
+      }
+      .yet-contents{
+        max-width: 343px;
+        margin: 0 auto;
+        font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+        &__email{
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          border-radius: 4px;
+          text-align: center;
+          color: #fff;
+          background-color: #ea352d;
+          position: relative;
+          .far.fa-envelope{
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            font-size: 18px;
+          }
+        }
+        &__facebook{
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          border-radius: 4px;
+          text-align: center;
+          margin: 16px 0 0;
+          background: #385185;
+          color: #fff;
+          position: relative;
+          .fab.fa-facebook-square{
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            font-size: 26px;
+          }
+        }
+        &__google{
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          border-radius: 4px;
+          text-align: center;
+          margin: 16px 0 0;
+          border: #979797 solid 1px;
+          color: #333;
+          position: relative;
+          .fab.fa-google{
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.new-account-header{
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+.new-account-header--iron{
+  background-image: image-url("logo/logo.png");
+  padding-bottom: 10px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 49px;
+  line-height: 49px;
+  width: 200px;
+  float: left;
+}
+.new-account-main{
+  background-color: #f5f5f5;
+  padding-bottom: 80px;
+  .account-container{
+    width: 456px;
+    margin: 0 auto;
+    background: #fff;
+    .no-LogIn-form{
+      padding: 40px 64px;
+      text-align: center;
+      p{
+      font-size: 14px;
+      }
+      .new-new--button {
+        display: block;
+        margin: 8px 0 0;
+        border: 1px solid #0099e8;
+        background: #0099e8;
+        color: #fff;
+        line-height: 40px;
+        text-align: center;
+        text-decoration: none;
+      }
+    }
+    &__content{
+      padding: 40px 64px;
+      background-color:white;
+      margin:  0 auto;
+      border-top: 1px solid #f5f5f5;
+      color: #333333;
+    }
+  }
+}
+.new-new--facebook--button{
+  position: relative;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  background: #385185;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  .fab.fa-facebook-square{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    font-size: 26px;
+  }
+}
+.new-new--google--button{
+  position: relative;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  background: #FFFFFF;
+  color: #333333;
+  text-align: center;
+  margin-top: 16px;
+  border: #979797 solid 1px;
+  text-decoration: none;
+  .fab.fa-google{
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    font-size: 18px;
+  }
+}
+.new-account--form{
+  text-align: center;
+  padding: 24px 64px 32px;
+  .new-new--email{
+    padding: 11px 0 11px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 100%;
+  }
+  .new-new--password{
+    padding: 11px 0 11px;
+    margin-top: 24px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 100%;
+  }
+  .new-new--login--button{
+    margin-top: 24px;
+    width: 100%;
+    height: 50px;
+    background: #EA352D;
+    color: #FFFFFF;
+  }
+  .new-new--password--forget{
+    color: #0099E8;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 40px;
+    text-align: left;
+    display: block;
+  }
+}
+
+
+.register-header{
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  .formLogo{
+    background-image: image-url("logo/logo.png");
+    padding-bottom: 10px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 49px;
+    line-height: 49px;
+    width: 200px;
+    float: left;
+  }
+  .register-header--bar{
+    font-size: 14px;
+    border: 0;
+    padding-left: 40px;
+    float: left;
+    .register-header--bar--information1{
+      font-weight: 600;
+      color:#3CCACE;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      margin-right: 30px;
+      .register-header--bar--iron1{
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #3CCACE;
+        border-radius: 50%;
+      }
+      .register-header--bar--iron1::after {
+        left: 50%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        content: '';
+        width: 190%;
+        height: 2px;
+        background: #ccc;
+      }
+    }
+    .register-header--bar--information2{
+      font-weight: 600;
+      color: #ccc;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      margin-right:20px;
+      .register-header--bar--iron2{
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #ccc;
+        border-radius: 50%;
+      }
+      .register-header--bar--iron2::after {
+        left: 60%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        content: '';
+        width: 150%;
+        height: 2px;
+        background: #ccc;
+      }
+    }
+    .register-header--bar--information3{
+      font-weight: 600;
+      color: #ccc;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      margin-right: 32px;
+      .register-header--bar--iron3{
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #ccc;
+        border-radius: 50%;
+      }
+      .register-header--bar--iron3::after {
+        left: 55%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #ccc;
+      }
+    }
+    .register-header--bar--information4{
+      font-weight: 600;
+      color: #ccc;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      .register-header--bar--iron4{
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #ccc;
+        border-radius: 50%;
+      }
+      .register-header--bar--iron4::after {
+        background: #ccc;
+      }
+    }
+  }
+}
+.register-main{
+  background-color: #f5f5f5;
+  .register-container{
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    form{
+      max-width: 343px;
+      margin: 0 auto;
+    }
+    &__title{
+      font-size: 22px;
+      font-weight: 600;
+      padding: 32px;
+      line-height: 1.5;
+      text-align: center;
+      color: #333333;
+    }
+    &__content{
+      padding: 40px 0 64px;
+      background-color:white;
+      width: 700px;
+      margin:  0 auto;
+      border-top: 1px solid #f5f5f5;
+      color: #333333;
+    }
+      .register-content--group{ 
+        padding-bottom: 32px;
+      }
+      .register-content__nickname{
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .register-content__nickname__form{
+        padding: 11px 0 11px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        width: 100%;
+        margin: 8px 0 0;
+      }
+      .register-content__email{
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .register-content__email__form{
+        padding: 11px 0 11px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        width: 100%;
+        margin: 8px 0 0;
+      }
+      .register-content__password{
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .register-content__password__form{
+        padding: 11px 0 11px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        width: 100%;
+        margin: 8px 0 8px;
+      }
+      .register-content__password__text{
+        color:gray;
+        font-size: 14px;
+        margin: 0 0 8px;
+      }
+      .register-content__password__display{
+        font-size: 14px;
+        margin-top: 12px;
+        .register-content__password__display__box{
+        padding: 0 0 0 8px;
+        font-size: 14px;
+        font-weight: 400;
+        vertical-align: middle;
+        cursor: pointer;
+        }
+      }
+
+      .register-content__password__note{
+        padding-top: 20px;
+        font-weight:900
+      }
+      .register-content__password__writing{
+        text-align: center;
+        padding-top: 10px;
+        font-size: 13px;
+        word-wrap: break-word;
+      }
+      .register-content__password__writing2{
+        text-align: center;
+        font-size: 13px;
+        word-wrap: break-word;
+        padding-right: 3px;
+      }
+      .register-content__password__writing3{
+        text-align: center;
+        font-size: 13px;
+        word-wrap: break-word;
+        padding-right: 249px;
+      }
+      .register-content--group--name{
+        margin-top: 32px;
+      }
+      .register-content__name__tag{
+        font-size: 14px;
+        label{
+          font-weight: 600;
+        }
+      }
+      .register-content__firstname__tag{
+        padding: 11px 0 11px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        width: calc(50% - 8px);
+        margin: 8px 5px 0 0;
+      }
+      .register-content__lastname__tag{
+        padding: 11px 0 11px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        width: calc(50% - 8px);
+      }
+        .register-content__birthdays__tag{
+          margin-top: 32px;
+        }
+        .register-content__birth{
+          display: flex;
+          line-height: 48px;
+          font-size: 14px;
+          select{
+            position: relative;
+            width: 76px;
+            z-index: 2;
+            height: 48px;
+            padding: 0 16px;
+            margin: 0 2px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            cursor: pointer;
+          }
+        }
+        .register-content__birthyear__tag{
+          height: 48px;
+          width: 75px;
+          font-size: 15px;
+          -webkit-appearance: none;
+        }
+        .register-content--year--letter{
+          margin-top: 15px;
+          margin-left: 5px;
+          margin-right: 10px;
+          font-size: 14px;
+        }
+        .register-content__birthmonth__tag{
+          height: 48px;
+          width: 75px;
+          font-size: 15px;
+          -webkit-appearance: none;
+        }
+        .register-content--month--letter{
+          margin-top: 15px;
+          margin-left: 5px;
+          margin-right: 10px;
+          font-size: 14px;
+        }
+        .register-content__birthday__tag{
+          height: 48px;
+          width: 75px;
+          font-size: 15px;
+          -webkit-appearance: none;
+        }
+        .register-content--day--letter{
+          margin-top: 15px;
+          margin-left: 5px;
+          margin-right: 5px;
+          font-size: 14px;
+        }
+        .note__tag1{
+          color:	#888;
+          font-size: 14px;
+          padding-top: 10px;
+        }
+        .note__tag2a{
+          font-size: 14px;
+          text-align: center;
+          margin: 40px 0 0;
+        }
+        .register-content--from-text-btn__tag{
+          height: 48px;
+          width: 100%;
+          color:#ffffff;
+          margin-top: 32px;
+          text-align:center;
+          background-color:#3CCACE;
+          font-size: 15px;
+        }
+        .register-content--bottom{
+          font-size: 14px;
+          margin-top: 32px;
+          text-align: right;
+          a{
+            color: #0099e8;
+            text-decoration: none;
+          }
+        }
+        .register-content--under{
+          margin-top: 32px;
+          background-color: #f5f5f5;
+          padding: 8px 16px;
+          p{
+            text-decoration: none;
+            color: #888888;
+            font-size: 12px;
+            font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+          }
+        }
+
+    .register-content__icon{
+      background:#3CCACE;
+      display: inline-block;
+      margin-left: 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+      vertical-align: top;
+    }
+  }
+}
+
+
+.address-information--header{
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  .address-information--header--iron{
+    background-image: image-url("logo/logo.png");
+    padding-bottom: 10px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 49px;
+    line-height: 49px;
+    width: 200px;
+    float: left;
+  }
+  .address-information--header--bar{
+    font-size: 14px;
+    border: 0;
+    padding-left: 40px;
+    float: left;
+  }
+  .address-information-header--bar--information1{
+    font-weight: 600;
+    color: #3CCACE;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    margin-right:30px;
+    .address-information-header--bar--iron1{
+      width: 12px;
+      height: 12px;
+      margin: 8px auto 0;
+      background: #3CCACE;
+      border-radius: 50%;
+    }
+    .address-information-header--bar--iron1::after {
+      left: 50%;
+      position: absolute;
+      bottom: 5px;
+      z-index: -1;
+      display: block;
+      content: '';
+      width: 190%;
+      height: 2px;
+      background: #3CCACE;
+    }
+  }
+  .address-information-header--bar--information2{
+    font-weight: 600;
+    color: #3CCACE;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    margin-right:20px;
+    .address-information-header--bar--iron2{
+      width: 12px;
+      height: 12px;
+      margin: 8px auto 0;
+      background: #3CCACE;
+      border-radius: 50%;
+    }
+    .address-information-header--bar--iron2::after {
+      left: 60%;
+      position: absolute;
+      bottom: 5px;
+      z-index: -1;
+      display: block;
+      content: '';
+      width: 150%;
+      height: 2px;
+      background: #ccc;
+    }
+  }
+  .address-information-header--bar--information3{
+    font-weight: 600;
+    color: #ccc;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    margin-right: 32px;
+    .address-information-header--bar--iron3{
+      width: 12px;
+      height: 12px;
+      margin: 8px auto 0;
+      background: #ccc;
+      border-radius: 50%;
+    }
+    .address-information-header--bar--iron3::after{
+      left: 55%;
+      position: absolute;
+      bottom: 5px;
+      z-index: -1;
+      display: block;
+      content: '';
+      width: 100%;
+      height: 2px;
+      background: #ccc;
+    }
+  }
+  .address-information-header--bar--information4{
+    font-weight: 600;
+    color: #ccc;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    .address-information-header--bar--iron4{
+      width: 12px;
+      height: 12px;
+      margin: 8px auto 0;
+      background: #ccc;
+      border-radius: 50%;
+    }
+    .address-information-header--bar--iron4::after {
+      background: #ccc;
+    }
+  }
+}
+.address-information-main{
+  background-color: #f5f5f5;
+  .address-container{
+    width: 700px;
+    margin:  0 auto;
+    background: #fff;
+    form{
+      max-width: 343px;
+      margin: 0 auto;
+      color: #333333;
+      font-size: 14px;
+    }
+    &__title{
+      font-size: 22px;
+      font-weight: 600;
+      padding: 32px;
+      line-height: 1.5;
+      text-align: center;
+      color: #333333;
+    }
+    &__content{
+      padding: 40px 0px 64px;
+      background-color:white;
+      width: 700px;
+      margin:  0 auto;
+      border-top: 1px solid #f5f5f5;
+    }
+    .address-content--group--name{
+      margin-top: 32px;
+    }
+    .address-content__name__tag{
+      font-size: 14px;
+      label{
+        font-weight: 600;
+      }
+    }
+    .address-content__firstname__tag{
+      padding: 11px 0 11px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+      width: calc(50% - 8px);
+      margin: 8 5px 0 0;
+    }
+    .address-content__lastname__tag{
+      padding: 11px 0 11px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+      width: calc(50% - 8px);
+    }
+  }
+  .address-information--group{ 
+    margin-top: 32px;
+    .address-information-content__tag{
+      font-weight: 600;
+    }
+    .address-information-content__form{
+      padding: 11px 30px 11px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+    .address-information__form{
+      position: relative;
+      top: 50%;
+      select{
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        -webkit-appearance: none;
+      }
+      .fas.fa-angle-down{
+        position: absolute;
+        top: 50%;
+        left: 23%;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        color: #888;
+        font-size: 20px;
+      }
+    }
+    .address-information__form__tag{
+      height: 45px;
+      width: 360px;
+      font-size: 13px;
+      color:  #808080;
+    }
+    .address-information__form__tag{
+      height: 48px;
+      font-size: 15px;
+      -webkit-appearance: none;
+    }
+    .address-information-from-text-btn__tag{
+      height: 50px;
+      width: 100%;
+      color:white;
+      margin-top: 50px;
+      text-align:center;
+      background-color:#3CCACE;
+    }
+  }
+}
+
+
+.address-information-content__icon{
+  background: #3CCACE;
+  display: inline-block;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  margin: 0 0 8px 8px;
+}
+
+
+.phone-number--header{
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#f5f5f5;
+  .phone-number--header--iron{
+    background-image: image-url("logo/logo.png");
+    padding-bottom: 10px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 49px;
+    line-height: 49px;
+    width: 200px;
+    float: left;
+  }
+  .phone-number--header--bar{
+    font-size: 14px;
+    border: 0;
+    padding-left: 40px;
+    float: left;
+    .phone-number-header--bar--information1{
+      font-weight: 600;
+      color:#3CCACE;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      margin-right: 30px;
+      .phone-number-header--bar--iron1{
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #3CCACE;
+        border-radius: 50%;
+      }
+      .phone-number-header--bar--iron1::after {
+        left: 50%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        content: '';
+        width: 190%;
+        height: 2px;
+        background: #3CCACE;
+      }
+    }
+    .phone-number-header--bar--information2{
+      font-weight: 600;
+      color: #3CCACE;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      margin-right:20px;
+      .phone-number-header--bar--iron2{
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #3CCACE;
+        border-radius: 50%;
+      }
+      .phone-number-header--bar--iron2::after {
+        left: 60%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        content: '';
+        width: 150%;
+        height: 2px;
+        background: #3CCACE;
+      }
+    }
+    .phone-number-header--bar--information3{
+      font-weight: 600;
+      color:  #3CCACE;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      margin-right: 32px;
+      .phone-number-header--bar--iron3{
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background:  #3CCACE;
+        border-radius: 50%;
+      }
+      .phone-number-header--bar--iron3::after {
+        left: 55%;
+        position: absolute;
+        bottom: 5px;
+        z-index: -1;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #ccc;
+      }
+    }
+    .phone-number-header--bar--information4{
+      font-weight: 600;
+      color: #ccc;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      .phone-number-header--bar--iron4{
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #ccc;
+        border-radius: 50%;
+      }
+      .phone-number-header--bar--iron4::after {
+        background: #ccc;
+      }
+    }
+  }
+}
+.phone-number--main{
+  background-color: #f5f5f5;
+  padding-bottom: 300px;
+  .phone-container{
+    width: 700px;
+    margin:  0 auto;
+    background: #fff;
+    form{
+      max-width: 343px;
+      margin: 0 auto;
+      color: #333333;
+      font-size: 14px;
+    }
+    &__title{
+      font-size: 22px;
+      font-weight: 600;
+      padding: 32px;
+      line-height: 1.5;
+      text-align: center;
+      color: #333333;
+    }
+    &__content{
+      padding: 40px 0px 64px;
+      background-color:white;
+      width: 700px;
+      margin:  0 auto;
+      border-top: 1px solid #f5f5f5;
+    }
+  }
+}
+.phone-number--group{
+  input{
+    padding: 11px 0 11px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  .phone-number__icon{
+    background:#3CCACE;
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+    float: right;
+    margin-right: 200px;
+  }
+}
+.phone-number__form{
+  width: 100%;
+  border-radius: 3%;
+  margin: 8px 0 0;
+  border-color:#3CCACE;
+}
+.phone-number-btn__tag{
+  margin-top: 32px;
+  height: 50px;
+  width: 100%;
+  background-color: #3CCACE;
+  color: white;
+  font-size: 14px;
+}
+// after
+.member-registration--header{
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+.member-registration--header--iron{
+  background-image: image-url("logo/logo.png");
+  padding-bottom: 10px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 49px;
+  line-height: 49px;
+  width: 200px;
+  float: left;
+}
+.member-registration--bar{
+  font-size: 14px;
+  border: 0;
+  padding-left: 40px;
+  float: left;
+}
+.member-registration-header--bar--information1{
+  font-weight: 600;
+  color:#3CCACE;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin-right: 30px;
+  .member-registration-header--bar--iron1{
+    width: 12px;
+    height: 12px;
+    margin: 8px auto 0;
+    background: #3CCACE;
+    border-radius: 50%;
+  }
+  .member-registration-header--bar--iron1::after {
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    content: '';
+    width: 190%;
+    height: 2px;
+    background: #3CCACE;
+  }
+}
+.member-registration-header--bar--information2{
+  font-weight: 600;
+  color: #3CCACE;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin-right:20px;
+
+  .member-registration-header--bar--iron2{
+    width: 12px;
+    height: 12px;
+    margin: 8px auto 0;
+    background: #3CCACE;
+    border-radius: 50%;
+  }
+  .member-registration-header--bar--iron2::after {
+    left: 60%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    content: '';
+    width: 150%;
+    height: 2px;
+    background: #3CCACE;
+  }
+}
+.member-registration-header--bar--information3{
+  font-weight: 600;
+  color: #3CCACE;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin-right: 32px;
+  .member-registration-header--bar--iron3{
+    width: 12px;
+    height: 12px;
+    margin: 8px auto 0;
+    background: #3CCACE;
+    border-radius: 50%;
+  }
+  .member-registration-header--bar--iron3::after {
+    left: 55%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #3CCACE;
+  }
+}
+.member-registration-header--bar--information4{
+  font-weight: 600;
+  color: #3CCACE;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  .member-registration-header--bar--iron4{
+    width: 12px;
+    height: 12px;
+    margin: 8px auto 0;
+    background: #3CCACE;
+    border-radius: 50%;
+  }
+  .member-registration-header--bar--iron4::after {
+    background: #3CCACE;
+  }
+}
+.member-registration--main{
+  background-color: #f5f5f5;
+  padding-bottom: 300px;
+  .member-container{
+    width: 700px;
+    margin:  0 auto;
+    background: #fff;
+    form{
+      max-width: 343px;
+      margin: 0 auto;
+      color: #333333;
+      font-size: 14px;
+    }
+    &__title{
+      font-size: 22px;
+      font-weight: 600;
+      padding: 32px;
+      line-height: 1.5;
+      text-align: center;
+      color: #333333;
+    }
+    &__content{
+      padding: 40px 0 64px;
+      background-color:white;
+      width: 700px;
+      margin:  0 auto;
+      border-top: 1px solid #f5f5f5;
+    }
+  }
+}
+.member-registration--content--text{
+  text-align: center;
+}
+
+.member-registration-btn{
+  text-align: center;
+  margin-top: 32px;
+}
+.member-registration-btn__tag{
+  width: 100%;
+  height: 50px;
+  background-color: #3CCACE;
+  color: white;
+}
+
+.field_with_errors{
+  display: inline;
+  color: #EA352D;
+  .user-form__errors{
+    color: #EA352D;
+  }
+  .address-errors{
+    color: #EA352D;
+  }
+}
