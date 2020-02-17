@@ -80,3 +80,7 @@ gem "jquery-rails"
 gem "payjp"
 gem 'active_hash'
 gem 'ancestry'
+gem 'pry-rails'
+gem 'rspec-rails'
+gem 'factory_bot_rails'
+gem 'erb2haml'

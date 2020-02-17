@@ -1025,6 +1025,18 @@
     line-height: 1.5;
     font-size: 16px;
   }
+  .phone-number__icon{
+    background:#3CCACE;
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+    float: right;
+    margin-right: 200px;
+  }
 }
 .phone-number__form{
   width: 100%;
@@ -1204,4 +1216,15 @@
   height: 50px;
   background-color: #3CCACE;
   color: white;
+}
+
+.field_with_errors{
+  display: inline;
+  color: #EA352D;
+  .user-form__errors{
+    color: #EA352D;
+  }
+  .address-errors{
+    color: #EA352D;
+  }
 }

@@ -25,17 +25,22 @@
             .address-information-content__icon 必須
           = form.text_field :firstname, class: "address-content__firstname__tag",placeholder: '  例）山田'
           = form.text_field :lastname, class: "address-content__lastname__tag",placeholder: '  例）太郎'
+          = render partial: 'address_errors', locals: {address: @address, column: "firstname"}
+          = render partial: 'address_errors', locals: {address: @address, column: "lastname"}
         .address-content--group--name
           .address-content__name__tag
             = form.label :お名前カナ（全角）
             .address-information-content__icon 必須
           = form.text_field :firstname_kana, class: "address-content__firstname__tag",placeholder: '  例）ヤマダ'
           = form.text_field :lastname_kana, class: "address-content__lastname__tag",placeholder: '  例）タロウ'
+          = render partial: 'address_errors', locals: {address: @address, column: "firstname_kana"}
+          = render partial: 'address_errors', locals: {address: @address, column: "lastname_kana"}
         .address-information--group
           .address-information-content__tag
             = form.label :郵便番号
             .address-information-content__icon 必須
           = form.text_field :zip_code, class: "address-information-content__form",placeholder: '  例)123-4567'
+          = render partial: 'address_errors', locals: {address: @address, column: "zip_code"}
         .address-information--group
           .address-information-content__tag
             = form.label :都道府県
@@ -43,16 +48,19 @@
           .address-information__form
             %i.fas.fa-angle-down
             = form.collection_select :prefecture_id, Prefecture.all, :id, :name
+          = render partial: 'address_errors', locals: {address: @address, column: "prefecture_id"}
         .address-information--group
           .address-information-content__tag
             = form.label :市区町村
             .address-information-content__icon 必須
           = form.text_field :city, class: "address-information-content__form",placeholder: '  例)横浜市緑区'
+          = render partial: 'address_errors', locals: {address: @address, column: "city"}
         .address-information--group
           .address-information-content__tag
             = form.label :番地
             .address-information-content__icon 必須
           = form.text_field :street, class: "address-information-content__form",placeholder: '  例)青山1-1-1'
+          = render partial: 'address_errors', locals: {address: @address, column: "street"}
         .address-information--group
           .address-information-content__tag
             = form.label :建物名
@@ -61,6 +69,7 @@
           .address-information-content__tag
             = form.label :電話
           = form.text_field :telephone, class: "address-information-content__form",placeholder: '  例)090123456789'
+          = render partial: 'address_errors', locals: {address: @address, column: "telephone"}
           .from-text-btn
             = form.submit "次へ進む",class: "address-information-from-text-btn__tag"
 = render 'items/subFooter'
