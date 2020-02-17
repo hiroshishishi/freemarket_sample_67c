@@ -1,16 +1,17 @@
 class CreateItems < ActiveRecord::Migration[5.2]
   def change
     create_table :items do |t|
-      t.references :seller_user, null: false, foreign_key: {to_table: :users}
+      t.string :title, null: false
+      t.text :text, null: false
       t.references :category, null: false, foreign_key: true
       t.string :brand
-      t.string :name, null: false
-      t.text :text, null: false
-      t.integer :condition, null: false
-      t.integer :fee, null:false
-      t.integer :delivery_day, null:false
+      t.integer :condition_id, null: false
+      t.integer :fee_id, null: false
+      t.integer :prefecture_id, null: false
+      t.integer :deliveryday_id, null: false
       t.integer :price, null: false
-      t.boolean :trading_status, null: false
+      t.references :seller, null: false, foreign_key: {to_table: :users}
+      t.references :buyer, foreign_key: {to_table: :users}
       t.timestamps
     end
   end
