@@ -38,20 +38,6 @@ RSpec.describe User, type: :model do
         expect(user.errors[:firstname_kana]).to include("can't be blank")
       end
 
-      # 6. katakanaだと登録できる
-      it "is valid with a lastname_kana that katakana " do
-        user = build(:user, lastname_kana: "ア")
-        user.valid?
-        expect(user).to be_valid
-      end
-
-      # 7. katakanaだと登録できる
-      it "is valid with a firstname_kana that katakana " do
-        user = build(:user, firstname_kana: "ア")
-        user.valid?
-        expect(user).to be_valid
-      end
-
       # 8. birth_yearが空では登録できないこと
       it "is invalid without a birth_year" do
         user = build(:user, birth_year: nil)
@@ -114,11 +100,11 @@ RSpec.describe User, type: :model do
         another_user.valid?
         expect(another_user.errors[:telephone]).to include("has already been taken")
       end
-      # 17. @なしでは登録できない
-      it "is invalid without a @" do
-        user = build(:user, email: "aaa@aaa.aa")
+      # 17. telephoneが空では登録できないこと
+      it "is invalid without a telephone" do
+        user = build(:user, telephone: nil)
         user.valid?
-        expect(user.errors[:email][0]).to include("Unable to register without ＠")
+        expect(user.errors[:telephone]).to include("can't be blank")
       end
     end
   end

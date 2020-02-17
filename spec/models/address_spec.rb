@@ -32,20 +32,6 @@ RSpec.describe Address, type: :model do
         expect(address.errors[:firstname_kana]).to include("can't be blank")
       end
 
-      # 5. katakanaだと登録できる
-      it "is valid with a lastname_kana that katakana " do
-        address = build(:address, lastname_kana: "ア")
-        address.valid?
-        expect(address).to be_valid
-      end
-
-      # 6. katakanaだと登録できる
-      it "is valid with a firstname_kana that katakana " do
-        address = build(:address, firstname_kana: "ア")
-        address.valid?
-        expect(address).to be_valid
-      end
-
       # 7. zip_codeが空では登録できないこと
       it "is invalid without a zip_code" do
         address = build(:address, zip_code: nil)
@@ -72,12 +58,6 @@ RSpec.describe Address, type: :model do
         address = build(:address, street: nil)
         address.valid?
         expect(address.errors[:street]).to include("can't be blank")
-      end
-      # 11. user_idが空では登録できないこと
-      it "is invalid without a user_id" do
-        address = build(:address, user_id: nil)
-        address.valid?
-        expect(address.errors[:user_id]).to include("can't be blank")
       end
     end
   end

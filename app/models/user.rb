@@ -23,7 +23,8 @@ class User < ApplicationRecord
   validates :birth_month, presence: true
   validates :birth_day,   presence: true
   validates :email,       uniqueness: true, presence: true
-  validates :password,    length: { minimum: 7 },presence: true
-  validates :telephone,   uniqueness: true
+  validates :password,    length: { minimum: 7 },presence: true ,confirmation: true
+  validates :password_confirmation, presence: true
+  validates :telephone,  uniqueness: true, presence: true
   
 end

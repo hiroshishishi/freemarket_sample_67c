@@ -5,13 +5,14 @@ class SignupsController < ApplicationController
 
   def user_register
     @user = User.new
+    
   end
 
   def address_register
-    # binding.pry
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
+    session[:password_confirmation] = user_params[:password_confirmation]
     session[:firstname] = user_params[:firstname]
     session[:lastname] = user_params[:lastname]
     session[:firstname_kana] = user_params[:firstname_kana]
@@ -23,19 +24,23 @@ class SignupsController < ApplicationController
       nickname: session[:nickname],
       email: session[:email],
       password: session[:password],
+      password_confirmation: session[:password_confirmation],
       firstname: session[:firstname],
       lastname: session[:lastname],
       firstname_kana: session[:firstname_kana],
       lastname_kana: session[:lastname_kana],
       birth_year: session[:birth_year],
       birth_month: session[:birth_month],
-      birth_day: session[:birth_day]
+      birth_day: session[:birth_day],
+      telephone: "09012345678"
     )
+    unless @user.valid?
+      render 'signups/user_register'
+    end
     @address = Address.new
   end
 
   def phone_register
-    # binding.pry
     session[:firstname] = address_params[:firstname]
     session[:lastname] = address_params[:lastname]
     session[:firstname_kana] = address_params[:firstname_kana]
@@ -46,7 +51,6 @@ class SignupsController < ApplicationController
     session[:street] = address_params[:street]
     session[:block_room] = address_params[:block_room]
     session[:telephone] = address_params[:telephone]
-    # binding.pry
     @user = User.new
     @address = Address.new(
       user: @user,
@@ -61,18 +65,19 @@ class SignupsController < ApplicationController
       block_room: session[:block_room],
       telephone: session[:telephone]
     )
-    # binding.pry
+    unless @address.valid?
+      render 'signups/address_register'
+    end
     @user = User.new
-    # binding.pry
   end
 
 
   def create
-    # binding.pry
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
       password: session[:password],
+      password_confirmation: session[:password_confirmation],
       telephone: user_params[:telephone],
       lastname: session[:lastname], 
       firstname: session[:firstname], 
@@ -83,8 +88,7 @@ class SignupsController < ApplicationController
       birth_day: session[:birth_day]
     )
     unless @user.valid?
-      flash.now[:alert] = @user.errors.full_messages
-      render '/signups/user_register' and return
+      return render '/signups/phone_register'
     end
     if @user.save
       session[:id] = @user.id
@@ -102,10 +106,6 @@ class SignupsController < ApplicationController
         lastname_kana: session[:lastname_kana], 
         firstname_kana: session[:firstname_kana]
       )
-      unless @address.valid?
-        flash.now[:alert] = @address.errors.full_messages
-        render '/signups/user_register' and return
-      end
     else
       render '/signups/index'
     end
@@ -132,7 +132,8 @@ class SignupsController < ApplicationController
       :birth_day,
       :password,
       :email,
-      :telephone
+      :telephone,
+      :password_confirmation
     )
   end
 

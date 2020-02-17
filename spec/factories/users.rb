@@ -12,7 +12,7 @@ FactoryBot.define do
     email                 {"kkk@gmail.com"}
     password              {"00000000"}
     password_confirmation {"00000000"}
-    telephone             {"12345678"}
+    telephone             {"09000000000"}
 
   end
 
