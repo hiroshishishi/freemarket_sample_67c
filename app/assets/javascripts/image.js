@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function(){
                   </div>
                   <div class="lower-box">
                   <div class="update-box">
-                  <label class="edit_btn">編集</label>
+                  <label class="edit_btn" id="edit_btn_${count}">編集</label>
                   </div>
                   <div class="delete-box" id="delete_btn_${count}">
                   <span>削除</span>
@@ -47,6 +47,36 @@ $(document).on('turbolinks:load', function(){
         }
       }
     });
+
+    $(document).on('click', '.edit_btn', function() {
+      var count = $('.preview-box').length;
+      setLabel(count);
+      var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+      $(`input[id='item_images_attributes_${id}_image']`).trigger('click');
+      // var file = this.files[0];
+      var reader = new FileReader();
+      // reader.readAsDataURL(file);
+      reader.onload = function() {
+        var image = this.result;
+        if ($(`#preview-box__${id}`).length == 0) {
+          var count = $('.preview-box').length;
+          var html = buildHTML(id);
+          var prevContent = $('.label-content').prev();
+          $(prevContent).append(html);
+        }
+        $(`#preview-box__${id} img`).attr('src', `${image}`);
+        var count = $('.preview-box').length;
+        if (count == 5) { 
+          $('.label-content').hide();
+        }
+        setLabel();
+        if(count < 5){
+          $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
+        }
+      }
+    });
+
     $(document).on('click', '.delete-box', function() {
       var count = $('.preview-box').length;
       setLabel(count);
