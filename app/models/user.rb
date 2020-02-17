@@ -9,7 +9,13 @@ class User < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :social_providers, dependent: :destroy
+  
   has_one :address, dependent: :destroy
+  has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
+  has_many :saling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
+  has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
+
+
   validates :nickname,      presence: true
   validates :lastname,      presence: true,
              format: { with: /\A[一-龥ぁ-ん]/}
@@ -26,5 +32,5 @@ class User < ApplicationRecord
   validates :password,    length: { minimum: 7 },presence: true ,confirmation: true
   validates :password_confirmation, presence: true
   validates :telephone,  uniqueness: true, presence: true
-  
+
 end
