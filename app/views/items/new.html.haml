@@ -30,13 +30,13 @@
                   商品名
                   %span> 必須
                 %div
-                = f.text_field :title, placeholder:"商品名（必須 40文字まで)", class:"free-content__form"
+                = f.text_field :title, placeholder:"商品名（必須 40文字まで)", class:"free-content__form", id:"title"
                 %span#title_error.error_m
                 .free-content__explain
                   商品の説明
                   %span> 必須
                 %div
-                = f.text_area :text, placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）\r\n2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:"free-content__formCategory"
+                = f.text_area :text, placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）\r\n2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:"free-content__formCategory", id:"text"
                 %span#text_error.error_m
               .content-sell.clearfix
                 %h3.content-sell__head 商品の詳細
@@ -46,7 +46,7 @@
                     %span> 必須
                     %div
                     .content-sell__formbox__category__select__child
-                      = f.collection_select :category_id, @categories, :id, :name, {prompt: "---"}, {class: "content-sell__formbox__category__select__form", id: 'parent_category'}
+                      = collection_select :category, :id,  @categories, :id, :name, {prompt: "---"}, {class: "content-sell__formbox__category__select__form", id: 'parent_category', name: ""}
                       %i.content-sell__formbox__category__select__btn
                         =icon('fa', 'chevron-down')
                   %span#category_error.error_m
@@ -63,7 +63,7 @@
                     .content-sell__formbox__status__select
                       %i.content-sell__formbox__status__select__btn
                         =icon('fa', 'chevron-down')
-                      = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__status__select__form", id: 'condition'}
+                      = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__status__select__form", id: "condition"}
                   %span#condition_error.error_m
               .content-sell.clearfix
                 %h3.content-sell__head 配送について
@@ -76,7 +76,7 @@
                     .content-sell__formbox__group__select
                       %i.content-sell__formbox__group__select__btn
                         =icon('fa', 'chevron-down')
-                      = f.collection_select :fee_id, Fee.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__group__select__form", id: 'fee'}
+                      = f.collection_select :fee_id, Fee.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__group__select__form", id: "fee"}
                   %span#fee_error.error_m
                   .content-sell__formbox__status
                     %label 発送元の地域
@@ -85,7 +85,7 @@
                     .content-sell__formbox__status__select
                       %i.content-sell__formbox__status__select__btn
                         =icon('fa', 'chevron-down')
-                      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'content-sell__formbox__status__select__form', id: 'prefecture'}
+                      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'content-sell__formbox__status__select__form', id: "prefecture"}
                   %span#prefecture_error.error_m
                   .content-sell__formbox__status
                     %label 発送までの日数
@@ -94,7 +94,7 @@
                     .content-sell__formbox__status__select
                       %i.content-sell__formbox__status__select__btn
                         =icon('fa', 'chevron-down')
-                      = f.collection_select :deliveryday_id, Deliveryday.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__status__select__form", id: 'deliveryday'}
+                      = f.collection_select :deliveryday_id, Deliveryday.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__status__select__form", id: "deliveryday"}
                   %span#deliveryday_error.error_m
               .content-sell.clearfix
                 %h3.content-sell__head 販売価格(300〜9,999,999)
@@ -108,7 +108,7 @@
                           %span> 必須
                         .content-sell__formbox__group__input
                           .content-sell__formbox__group__input__icon ¥
-                          = f.number_field :price, type: "input", class: "content-sell__formbox__group__input__box", placeholder: "例) 300", id: 'price'
+                          = f.number_field :price, type: "input", class: "content-sell__formbox__group__input__box", placeholder: "例) 300", id: "price"
                     %span#price_error.error_m
                     %li.content-sell__formbox__tax
                       .content-sell__formbox__tax__left 販売手数料(10%)
