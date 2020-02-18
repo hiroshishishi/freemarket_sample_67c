@@ -21,4 +21,13 @@ Rails.application.routes.draw do
       get 'done_register'
     end
   end
+  resources :user, only: [:index] do
+    collection do
+      get 'right_buy'
+      get 'right_like'
+      get 'right_logout'
+      get 'right_sell'
+      get 'right_card'
+    end
+  end
 end
