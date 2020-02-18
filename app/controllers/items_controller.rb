@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.category_id = params[:category]
     if @item.save
       redirect_to root_path
     end
