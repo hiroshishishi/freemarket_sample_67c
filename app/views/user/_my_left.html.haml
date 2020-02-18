@@ -28,10 +28,10 @@
     %h3.my-nav__list__title  設定
     %ul.my-nav__list
       %li.my-nav__list__part
-        = link_to "プロフィール", "#"
+        = link_to "プロフィール", user_index_path, class: "newBtn"
         %i.fas.fa-angle-right
       %li.my-nav__list__part
-        =link_to "クレジット", right_card_user_index_path,class: "newBtn"
+        =link_to "クレジット", new_card_path,class: "newBtn"
         %i.fas.fa-angle-right
       %li.my-nav__list__part 
         =link_to "ログアウト", right_logout_user_index_path,class: "newBtn"
