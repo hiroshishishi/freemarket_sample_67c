@@ -30,4 +30,6 @@ Rails.application.routes.draw do
       get 'right_card'
     end
   end
+  resources :cards, only: [:new] do
+  end
 end
