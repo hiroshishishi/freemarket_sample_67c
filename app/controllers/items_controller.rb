@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
 
   def show
     @seller_id = User.find(@item.seller_id)
-    @category = Category.find(@item.category_id)
+    @category = @item.category
   end
 
   private
