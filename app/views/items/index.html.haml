@@ -84,38 +84,20 @@
             = link_to "新規投稿商品", "#", class: "subtitle"
           .itemList
             .item
-              = link_to "#" do
-                .item__image
-                .content
-                  %h3.title
-                    product3
-                  .text
-                    %ul 
-                      %li.price 30000円
-                      %li.likes ★0
-                    %p （税込）
-            .item
-              = link_to "#" do
-                .item__image
-                .content
-                  %h3.title
-                    product2
-                  .text
-                    %ul 
-                      %li.price 20000円
-                      %li.likes ★0
-                    %p （税込）
-            .item
-              = link_to "#" do
-                .item__image
-                .content
-                  %h3.title
-                    product1
-                  .text
-                    %ul 
-                      %li.price 10000円
-                      %li.likes ★0
-                    %p （税込）
+            - @items.each do |item|
+              = link_to item_path(item) do
+                .item-item
+                  = image_tag item.images[0].src.url, class: 'item-image',size: "220x150"
+                  .item-text
+                    %p= item.title
+                    .item-price-like
+                      %p="¥#{item.price}"
+                      .like-counts ★０
+                    %p.tax-included-text  (税込)
+                -if item.buyer_id.present? 
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner
+                      SOLD
     .pickupContent
       %h2.pickupContent__title
         ピックアップブランド
@@ -124,38 +106,7 @@
             = link_to "アーカイバ", "#", class: "subtitle"
           .itemList
             .item
-              = link_to "#" do
-                .item__image
-                .content
-                  %h3.title
-                    product3
-                  .text
-                    %ul 
-                      %li.price 30000円
-                      %li.likes ★0
-                    %p （税込）
-            .item
-              = link_to "#" do
-                .item__image
-                .content
-                  %h3.title
-                    product2
-                  .text
-                    %ul 
-                      %li.price 20000円
-                      %li.likes ★0
-                    %p （税込）
-            .item
-              = link_to "#" do
-                .item__image
-                .content
-                  %h3.title
-                    product1
-                  .text
-                    %ul 
-                      %li.price 10000円
-                      %li.likes ★0
-                    %p （税込）
+
   = render "footer"
 
   = link_to new_item_path, class:"purchaseBtn" do
