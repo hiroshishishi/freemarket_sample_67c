@@ -116,6 +116,31 @@
           height: 72px;
           line-height: 72px;
         }
+        .card-credit-head{
+          font-size: 24px;
+          padding: 8px 24px;
+          text-align: center;
+        }
+        .card-credit{
+          list-style: none;
+          padding: 64px;
+          background-color: white;
+          border-top: 1px solid #f5f5f5;
+          section{
+            text-align: center;
+            font-size: 16px;
+            color: #ccc;
+          }
+        }
+        .credit-text{
+          max-width: 320px;
+          margin: 0 auto;
+          font-size: 16px;
+        }
+
+        .card-delete{
+          float: right;
+        }
         .item-tab{
           border: 0;
           background: #eee;
@@ -161,6 +186,7 @@
             text-align: center;
             margin: 0 160px;
             .btn-logout{
+              display: block;
               width: 320px;
               height: 50px;
               line-height: 50px;
@@ -172,7 +198,7 @@
           }
         }
       }
-      .iine-head{
+      .iine-card-head{
         border-bottom: 1px solid #f5f5f5;
         text-align: center;
         font-size: 24px;
@@ -184,30 +210,55 @@
           background: url(logo/logo.png);
           background-repeat: no-repeat;
           background-position: center 60px;
-          background-size: 90px 55px;
+          background-size: 90px 35px;
           text-align: center;
           font-size: 16px;
           color: #ccc;
         }
       }
       .sell-tab{
-        border: 0;
         background: #eee;
         list-style: none;
         display: flex;
-        border-top: 2px solid #ea352d;
-        .active{
-          background: #fff;
+        .exhibiting-btn{
           width: 33.3%;
           text-align: center;
           height: 72px;
           line-height: 72px;
-          a{
-            text-decoration: none;
-            font-size: 16px;
-          }
+        }
+        .trading-btn{
+          width: 33.3%;
+          text-align: center;
+          height: 72px;
+          line-height: 72px;
+        }
+        .sell-btn{
+          width: 33.3%;
+          text-align: center;
+          height: 72px;
+          line-height: 72px;
+        }
+        .buying-btn{
+          width: 33.3%;
+          text-align: center;
+          height: 72px;
+          line-height: 72px;
+        }
+        .deal-btn{
+          width: 33.3%;
+          text-align: center;
+          height: 72px;
+          line-height: 72px;
         }
       }
     }
   }
+}
+.mypage-btn{
+  text-decoration: none;
+  color: #333333;
+}
+.active{
+  background: #fff;
+  border-top: 2px solid #ea352d;
 }
