@@ -6,7 +6,7 @@
         .inner
           %h1.inner__title 商品の情報を入力
           .form
-            = form_with model: @item, url: items_path, method: "POST", local:true do |f|
+            = form_with model: @item, url: item_path, method: "PATCH", local:true do |f|
               .upload-box
                 .title
                   出品画像
@@ -14,16 +14,22 @@
                 %p 最大10枚までアップロードできます
                 .dropbox
                   .preview-content
+                    - @item.images.each_with_index do |image, i|
+                      .preview-box{:id => i}
+                        .upper-box
+                          = image_tag image.src.url
+                        .lower-box
+                          .update-box
+                            %label.edit_btn{:id => "edit_btn_#{i}"} 編集
+                          .delete-box{:id => "delete_btn_#{i}"}
+                            %span 削除
                   .label-content
                     %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
                       %pre.label-box__text クリックしてファイルをアップロード
                   .hidden-content
                     = f.fields_for :images do |i|
-                      = i.file_field :src, id: "item_images_attributes_0_image",  name: "item[images_attributes][0][src]", class: 'hidden-field'
-                      = i.file_field :src, id: "item_images_attributes_1_image",  name: "item[images_attributes][1][src]", class: 'hidden-field'
-                      = i.file_field :src, id: "item_images_attributes_2_image",  name: "item[images_attributes][2][src]", class: 'hidden-field'
-                      = i.file_field :src, id: "item_images_attributes_3_image",  name: "item[images_attributes][3][src]", class: 'hidden-field'
-                      = i.file_field :src, id: "item_images_attributes_4_image",  name: "item[images_attributes][4][src]", class: 'hidden-field'
+                      = i.file_field :src, id: "item_images_attributes_#{i.index}_image",  name: "item[images_attributes][#{i.index}][src]", class: 'hidden-field'
+                      = i.check_box :_destroy, data:{index: i.index}, class: "hidden-destroy", type:"display:none;"
                   %span#image_error.error_m
               .free-content
                 .free-content__title
@@ -46,9 +52,19 @@
                     %span> 必須
                     %div
                     .content-sell__formbox__category__select__child
-                      = collection_select :category, :id, @categories, :id, :name, {prompt: "---"}, {class: "content-sell__formbox__category__select__form", id: 'parent_category', name: ""}
+                      = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c[1],c[0]]}, @selected_parent_category), {}, {class: 'content-sell__formbox__category__select__form', id: 'parent_category', name:""}
                       %i.content-sell__formbox__category__select__btn
                         =icon('fa', 'chevron-down')
+                    #children_wrapper.content-sell__formbox__category__select__child__added
+                      .content-sell__formbox__category__select__child
+                        = f.select :category_id, options_for_select(@category_child_array.map{|c|[c[1],c[0]]}), {selected: @selected_child_category}, {class: 'content-sell__formbox__category__select__child--select', id: 'parent_category', name:""}
+                        %i.content-sell__formbox__category__select__btnChild
+                          =icon('fa', 'chevron-down')
+                    #grandchildren_wrapper.content-sell__formbox__category__select__child__added
+                      .content-sell__formbox__category__select__child
+                        = f.select :category_id, options_for_select(@category_grandchild_array.map{|c|[c[1],c[0]]}), {selected: @selected_grandchild_category}, {class: 'content-sell__formbox__category__select__child--select', id: 'parent_category', name:"item[category_id]"}
+                        %i.content-sell__formbox__category__select__btnChild
+                          =icon('fa', 'chevron-down')
                   %span#category_error.error_m
                   .content-sell__formbox__brand
                     %label ブランド
