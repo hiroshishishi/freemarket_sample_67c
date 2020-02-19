@@ -3,8 +3,8 @@ class ItemsController < ApplicationController
   before_action :set_categories, only: [:index, :new, :create, :edit, :update]
   before_action :set_item, only: [:show]
   def index
-    @items = Item.all
-    @items = @items.includes(:user).order("created_at DESC")
+    @items = Item.all.limit(5)
+    @item = @items.includes(:user).order("created_at DESC")
   end
 
   def new
