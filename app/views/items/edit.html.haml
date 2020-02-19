@@ -6,7 +6,7 @@
         .inner
           %h1.inner__title 商品の情報を入力
           .form
-            = form_with model: @item, url: items_path, method: "POST", local:true do |f|
+            = form_with model: @item, url: item_path, method: "PATCH", local:true do |f|
               .upload-box
                 .title
                   出品画像
@@ -14,29 +14,35 @@
                 %p 最大10枚までアップロードできます
                 .dropbox
                   .preview-content
+                    - @item.images.each_with_index do |image, i|
+                      .preview-box{:id => i}
+                        .upper-box
+                          = image_tag image.src.url
+                        .lower-box
+                          .update-box
+                            %label.edit_btn{:id => "edit_btn_#{i}"} 編集
+                          .delete-box{:id => "delete_btn_#{i}"}
+                            %span 削除
                   .label-content
                     %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
                       %pre.label-box__text クリックしてファイルをアップロード
                   .hidden-content
                     = f.fields_for :images do |i|
-                      = i.file_field :src, id: "item_images_attributes_0_image",  name: "item[images_attributes][0][src]", class: 'hidden-field'
-                      = i.file_field :src, id: "item_images_attributes_1_image",  name: "item[images_attributes][1][src]", class: 'hidden-field'
-                      = i.file_field :src, id: "item_images_attributes_2_image",  name: "item[images_attributes][2][src]", class: 'hidden-field'
-                      = i.file_field :src, id: "item_images_attributes_3_image",  name: "item[images_attributes][3][src]", class: 'hidden-field'
-                      = i.file_field :src, id: "item_images_attributes_4_image",  name: "item[images_attributes][4][src]", class: 'hidden-field'
+                      = i.file_field :src, id: "item_images_attributes_#{i.index}_image",  name: "item[images_attributes][#{i.index}][src]", class: 'hidden-field'
+                      = i.check_box :_destroy, data:{index: i.index}, class: "hidden-destroy", type:"display:none;"
                   %span#image_error.error_m
               .free-content
                 .free-content__title
                   商品名
                   %span> 必須
                 %div
-                = f.text_field :title, placeholder:"商品名（必須 40文字まで)", class:"free-content__form"
+                = f.text_field :title, placeholder:"商品名（必須 40文字まで)", class:"free-content__form", id:"title"
                 %span#title_error.error_m
                 .free-content__explain
                   商品の説明
                   %span> 必須
                 %div
-                = f.text_area :text, placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）\r\n2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:"free-content__formCategory"
+                = f.text_area :text, placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）\r\n2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class:"free-content__formCategory", id:"text"
                 %span#text_error.error_m
               .content-sell.clearfix
                 %h3.content-sell__head 商品の詳細
@@ -46,9 +52,19 @@
                     %span> 必須
                     %div
                     .content-sell__formbox__category__select__child
-                      = collection_select :category, :id, @categories, :id, :name, {prompt: "---"}, {class: "content-sell__formbox__category__select__form", id: 'parent_category', name: ""}
+                      = f.select :category_id, options_for_select(@category_parent_array.map{|c|[c[1],c[0]]}, @selected_parent_category), {}, {class: 'content-sell__formbox__category__select__form', id: 'parent_category', name:""}
                       %i.content-sell__formbox__category__select__btn
                         =icon('fa', 'chevron-down')
+                    #children_wrapper.content-sell__formbox__category__select__child__added
+                      .content-sell__formbox__category__select__child
+                        = f.select :category_id, options_for_select(@category_child_array.map{|c|[c[1],c[0]]}), {selected: @selected_child_category}, {class: 'content-sell__formbox__category__select__child--select', id: 'parent_category', name:""}
+                        %i.content-sell__formbox__category__select__btnChild
+                          =icon('fa', 'chevron-down')
+                    #grandchildren_wrapper.content-sell__formbox__category__select__child__added
+                      .content-sell__formbox__category__select__child
+                        = f.select :category_id, options_for_select(@category_grandchild_array.map{|c|[c[1],c[0]]}), {selected: @selected_grandchild_category}, {class: 'content-sell__formbox__category__select__child--select', id: 'parent_category', name:"item[category_id]"}
+                        %i.content-sell__formbox__category__select__btnChild
+                          =icon('fa', 'chevron-down')
                   %span#category_error.error_m
                   .content-sell__formbox__brand
                     %label ブランド
@@ -63,7 +79,7 @@
                     .content-sell__formbox__status__select
                       %i.content-sell__formbox__status__select__btn
                         =icon('fa', 'chevron-down')
-                      = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__status__select__form", id: 'condition'}
+                      = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__status__select__form", id: "condition"}
                   %span#condition_error.error_m
               .content-sell.clearfix
                 %h3.content-sell__head 配送について
@@ -76,7 +92,7 @@
                     .content-sell__formbox__group__select
                       %i.content-sell__formbox__group__select__btn
                         =icon('fa', 'chevron-down')
-                      = f.collection_select :fee_id, Fee.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__group__select__form", id: 'fee'}
+                      = f.collection_select :fee_id, Fee.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__group__select__form", id: "fee"}
                   %span#fee_error.error_m
                   .content-sell__formbox__status
                     %label 発送元の地域
@@ -85,7 +101,7 @@
                     .content-sell__formbox__status__select
                       %i.content-sell__formbox__status__select__btn
                         =icon('fa', 'chevron-down')
-                      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'content-sell__formbox__status__select__form', id: 'prefecture'}
+                      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, {class: 'content-sell__formbox__status__select__form', id: "prefecture"}
                   %span#prefecture_error.error_m
                   .content-sell__formbox__status
                     %label 発送までの日数
@@ -94,7 +110,7 @@
                     .content-sell__formbox__status__select
                       %i.content-sell__formbox__status__select__btn
                         =icon('fa', 'chevron-down')
-                      = f.collection_select :deliveryday_id, Deliveryday.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__status__select__form", id: 'deliveryday'}
+                      = f.collection_select :deliveryday_id, Deliveryday.all, :id, :name, {prompt: "---"}, {class:"content-sell__formbox__status__select__form", id: "deliveryday"}
                   %span#deliveryday_error.error_m
               .content-sell.clearfix
                 %h3.content-sell__head 販売価格(300〜9,999,999)
@@ -108,7 +124,7 @@
                           %span> 必須
                         .content-sell__formbox__group__input
                           .content-sell__formbox__group__input__icon ¥
-                          = f.number_field :price, type: "input", class: "content-sell__formbox__group__input__box", placeholder: "例) 300", id: 'price'
+                          = f.number_field :price, type: "input", class: "content-sell__formbox__group__input__box", placeholder: "例) 300", id: "price"
                     %span#price_error.error_m
                     %li.content-sell__formbox__tax
                       .content-sell__formbox__tax__left 販売手数料(10%)
