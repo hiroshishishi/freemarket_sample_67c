@@ -1,7 +1,7 @@
 .bodyUser 
   = render 'items/header'
   .user-main
-    = render 'my_left'
+    = render 'user/my_left'
     .my-right
       .my-right__contents
         %section.my-right__contents__head
@@ -9,10 +9,14 @@
         .card-credit
           %section
             %h3.credit-text クレジットカード一覧
-          %ul.credit-my-card
-            %li
+            %ul.credit-my-card
+              %li
               .credit-my-card-form
-                .set-payment-number fghjk
-                .set-payment-deadline 12345
+                .set-payment-image AAAA
+                .set-payment-number ****-****-0000
+                .set-payment-deadline 11/11
                 = link_to "削除する", "#", class:"card-delete",method: "delete"
+          .how-payment
+            .how-payment-area
+              %span 支払い方法について
   = render 'items/footer'
