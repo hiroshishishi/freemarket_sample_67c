@@ -3,63 +3,73 @@
   .bodyItems
     .itemInfo
       .name
-      %h1 ネクタイ
+        = @item.title
       .mainContent
         .imageContent
           .image
-            .bigImage
+            %img.bigImage
+            = image_tag @item.images[0].src.url, height: "346px", width: "560px", class: "bigImage-first", id: "mainphoto"
             %ul.smallImage
-              %li.image01
-              %li.image02
-              %li.image03
+              - @item.images.each do |item_image|
+                =image_tag item_image.src.url, height: "87px", width: "25%", class: "image01"
         .priceBox
-          %span.price ¥1,600
-          %span.tax> （税込）送料込み
-        = link_to "購入画面に進む", "#", class: "buyBtn"
+          %span.price 
+            =  "¥#{@item.price}"
+          %span.tax> （税込）#{@item.fee.name}
+          - if user_signed_in?
+            - if current_user.id == @item.seller_id
+              = link_to "編集画面にすすむ", "#", class: "buyBtn"
+              = link_to "削除する", "#", class: "delete-Btn"
+            - else
+              - if @item.buyer_id.present?
+                .soldout
+                売り切れました
+              - else
+                -if @card.present?
+                  = link_to "購入画面にすすむ", "#", class: "buyBtn"
+                - else
+                  = link_to "支払い情報を登録してください", "#", class: "buyBtn"
+          - else
+            = link_to "ログインしてください", "#", class: "buyBtn"   
+        
         .text
-          アルマーニのネクタイです。<br>
-          イタリア製　made  in France<br>
-          大検幅:9cm<br>
-          <br>
-          カラー:ブルー<br>
-          <br>
-          ご不明点があればコメントよろしくお願いいたします。
+          = @item.text
         .detail
           .detailTable
             .table
               %ul.seller
                 %li.title 出品者
                 %li.info
-                  = link_to "木村壮", "#", class: "sellerName"
+                  = link_to "#{@seller_id.nickname}", "#", class: "sellerName"
               %ul.category
                 %li.title
                   %p  カテゴリー
                 %li.info
-                  = link_to "メンズ", "#", class: "topCategory"
+                  = link_to "#{@category.root.name}", "#", class: "topCategory"
                   <br>
-                  = link_to "＞小物", "#", class: "middleCategory"
+                  = link_to "＞#{@category.parent.name}", "#", class: "middleCategory"
                   <br>
-                  = link_to "＞ネクタイ", "#", class: "bottomCategory"
+                  = link_to "＞#{@category.name}", "#", class: "bottomCategory"
               %ul.brand
                 %li.title ブランド
                 %li.info
-                  = link_to "ジョルジオ・アルマーニ", "#", class: "brandName"
+                  = link_to "#{@item.brand}", "#", class: "brandName"
               %ul.condition
                 %li.title 商品の状態
-                %li.info 目立った傷や汚れなし
+                %li.info #{@item.condition.name}
               %ul.charge
                 %li.title 配送料の負担
-                %li.info 送料込み(出品者負担)
+                %li.info #{@item.fee.name}
               %ul.method
                 %li.title 配送料の方法
                 %li.info 未定
               %ul.area
                 %li.title 配送元地域
                 %li.info 
-                  = link_to "愛知県", "#", class: "prefecture"
+                  = link_to "#{@item.prefecture.name}", "#", class: "prefecture"
               %ul.day
                 %li.title 発送日の目安
-                %li.info 2〜3日で発送
+                %li.info #{@item.deliveryday.name}
         .other
           .left
             = link_to "#", class: "btn" do
@@ -91,6 +101,6 @@
     .categoryItems
       = link_to "ベビー・キッズをもっと見る", "#", class: "categoryBtn"
   = render "footer"
-  = link_to "#", class:"purchaseBtn" do
+  = link_to new_item_path, class:"purchaseBtn" do
     %span> 出品する
     .img

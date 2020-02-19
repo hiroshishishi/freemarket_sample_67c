@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :navi_parents, only: [:index]
   before_action :set_categories, only: [:index, :new, :create, :edit, :update]
+  before_action :set_item, only: [:show]
   def index
     @items = Item.all.limit(5)
     @item = @items.includes(:user).order("created_at DESC")
@@ -27,6 +28,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @seller_id = User.find(@item.seller_id)
+    @category = @item.category
   end
 
   private
@@ -38,5 +41,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:category_id, :brand, :title, :text, :condition_id, :prefecture_id, :fee_id, :deliveryday_id, :price, images_attributes: [:src]).merge(seller_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
