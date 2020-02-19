@@ -308,64 +308,24 @@
           background-repeat: no-repeat;
           height: 290px;
           width: 100%;
-          .number {
-            position: absolute;
-            display: inline-block;
-            top: 0;
-            left: 0;
-            border-radius: 4%;
-            font-size: 30px;
-            text-align: center;
-            margin: 0 0 0 8px;
-            padding: 10px 20px;
-            background-color: #3CCACE;
-            color: #fff;
-          }
         }
-        .image02 {
+        .items-box_photo__sold{
+          width: 0;
+          height: 0;
+          border-top: 60px solid #ea352d ;
+          border-right: 60px solid transparent;
+          border-bottom: 60px solid transparent;
+          border-left: 60px solid #ea352d ;
+          z-index:100;
           position: relative;
-          margin-bottom: 20px;
-          background-image: image-url("pict/pict-reason-02.jpg");
-          background-position: center;
-          background-size: contain;
-          background-repeat: no-repeat;
-          height: 290px;
-          width: 100%;
-          .number {
-            position: absolute;
-            display: inline-block;
-            top: 0;
-            left: 0;
-            border-radius: 4%;
-            font-size: 30px;
-            text-align: center;
-            margin: 0 0 0 8px;
-            padding: 10px 20px;
-            background-color: #3CCACE;
+          top:-320px;
+          &__inner{
+            transform: rotate(-45deg);
+            font-size: 28px;
+            margin:-35px 0px 0px -55px;
             color: #fff;
-          }
-        }
-        .image03 {
-          position: relative;
-          margin-bottom: 20px;
-          background-image: image-url("pict/pict-reason-03.jpg");
-          background-position: center;
-          background-size: contain;
-          background-repeat: no-repeat;
-          height: 290px;
-          width: 100%;
-          .number {
-            position: absolute;
-            display: inline-block;
-            top: 0;
-            left: 0;
-            border-radius: 4%;
-            font-size: 30px;
-            text-align: center;
-            margin: 0 0 0 8px;
-            padding: 10px 20px;
-            background-color: #3CCACE;
-            color: #fff;
+            letter-spacing: 2px;
+            font-weight: 600;
           }
         }
         .text {
@@ -692,7 +652,7 @@ aside {
     padding: 24px 40px 40px;
     background: #fff;
     display: block;
-    h1 {
+    .name {
       font-size: 24px;
       font-weight: bold;
       text-align: center;
@@ -717,36 +677,22 @@ aside {
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
-            background-image: url("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266");
+            position: relative;
+            // background-image: url("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266");
+          }
+          .bigImage-first{
+            position: absolute;
           }
           .smallImage {
             display: flex;
             justify-content: center;
             margin-top: 10px;
             width: 75%;
-            li {
+            .image01 {
               width: 25%;
               margin: 0 10px 0 0;
               object-fit: cover;
               height: 87px;
-            }
-            .image01 {
-              background-position: center;
-              background-size: contain;
-              background-repeat: no-repeat;
-              background-image: url("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266");
-            }
-            .image02 {
-              background-position: center;
-              background-size: contain;
-              background-repeat: no-repeat;
-              background-image: url("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266");
-            }
-            .image03 {
-              background-position: center;
-              background-size: contain;
-              background-repeat: no-repeat;
-              background-image: url("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266");
             }
           }
         }
@@ -771,6 +717,17 @@ aside {
         display: block;
         margin: 16px 0 32px 0;
         background: #ea352d;
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .delete-Btn {
+        font-size: 24px;
+        line-height: 60px;
+        display: block;
+        margin: 0 0 32px 0;
+        background: #d3d3d3;
         color: #fff;
         text-align: center;
         font-weight: 600;
