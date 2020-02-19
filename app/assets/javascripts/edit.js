@@ -51,16 +51,5 @@ $(document).on('turbolinks:load', ()=> {
         $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
       }
     });
-    
-    // var count = $('.preview-box').length;
-    // var reader = new FileReader();
-    // reader.onload = function() {
-    //   if (count == 5) { 
-    //     $('.label-subcontent').hide();
-    //   }
-    //   if (count < 5) {
-    //     $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
-    //   }
-    // }
   });
 });
