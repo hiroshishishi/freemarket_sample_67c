@@ -527,12 +527,30 @@
           margin: 26px auto;
           display: flex;
           justify-content: space-around;
-          .item {
-            width: 220px;
-            display: inline-block;
-            a {
+          .item-item {
+            p{
               text-decoration: none;
+              display: inline-block;
+
             }
+            .item-text{
+              text-align: left;
+              color: #333333;
+              background-color: #FFFFFF;
+              padding: 16px;
+              font-size: 16px;
+              text-decoration: none;
+              .item-price-like{
+                .like-counts{
+                  text-decoration: none;
+                  float: right;
+                }
+              }
+              .tax-included-text{
+                font-size: 10px;
+              }
+            }
+ 
             &__image {
               width: 220px;
               height: 150px;
@@ -692,7 +710,7 @@ aside {
     padding: 24px 40px 40px;
     background: #fff;
     display: block;
-    h1 {
+    .name {
       font-size: 24px;
       font-weight: bold;
       text-align: center;
@@ -717,36 +735,22 @@ aside {
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
-            background-image: url("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266");
+            position: relative;
+          }
+          .bigImage-first{
+            position: absolute;
           }
           .smallImage {
             display: flex;
             justify-content: center;
             margin-top: 10px;
             width: 75%;
-            li {
+            .image01 {
               width: 25%;
               margin: 0 10px 0 0;
               object-fit: cover;
               height: 87px;
-            }
-            .image01 {
-              background-position: center;
-              background-size: contain;
-              background-repeat: no-repeat;
-              background-image: url("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266");
-            }
-            .image02 {
-              background-position: center;
-              background-size: contain;
-              background-repeat: no-repeat;
-              background-image: url("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266");
-            }
-            .image03 {
-              background-position: center;
-              background-size: contain;
-              background-repeat: no-repeat;
-              background-image: url("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266");
+              cursor: pointer;
             }
           }
         }
@@ -771,6 +775,17 @@ aside {
         display: block;
         margin: 16px 0 32px 0;
         background: #ea352d;
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .delete-Btn {
+        font-size: 24px;
+        line-height: 60px;
+        display: block;
+        margin: 0 0 32px 0;
+        background: #d3d3d3;
         color: #fff;
         text-align: center;
         font-weight: 600;

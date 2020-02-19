@@ -1,15 +1,16 @@
-= render 'items/header'
-.user-main
-  = render 'my_left'
-  .my-right
-    %section.my-right__contents
-      %h2.my-right__contents__head 購入した商品
-      %ul.item-tab
-        %li.item-tab__head
-          %h3.item-tab__head__title 取引中
-        %li.item-tab__head
-          %h3.item-tab__head__title 過去の取引
-      .tab-content
-        %ul.tab-content__box
-          %li.tab-content__box__deal 取引中の商品がありません
-= render 'items/footer'
+.bodyUser 
+  = render 'items/header'
+  .user-main
+    = render 'my_left'
+    .my-right
+      %section.my-right__contents
+        %h2.my-right__contents__head 購入した商品
+        %ul.item-tab
+          %li.item-tab__head
+            %h3.buying-btn.active 取引中
+          %li.item-tab__head
+            %h3.deal-btn 過去の取引
+        .tab-content
+          %ul.tab-content__box
+            %li.tab-content__box__deal 取引中の商品がありません
+  = render 'items/footer'

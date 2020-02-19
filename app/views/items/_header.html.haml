@@ -1,7 +1,7 @@
 .header
   .headerContents
     .headerMain
-      = link_to "#" do
+      = link_to  '/items'do
         %h1.icon
       = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
         = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"
@@ -72,7 +72,7 @@
           %li.navi__right-item__login
             = link_to "ログアウト", destroy_user_session_path,  method: :delete, class: "loginBtn" 
           %li.navi__right-item__new
-            = link_to "マイページ", '#', class: "newBtn" 
+            = link_to "マイページ", user_index_path, class: "newBtn" 
         - else
           %li.navi__right-item__login
             = link_to "ログイン", new_user_session_path, class: "loginBtn" 
