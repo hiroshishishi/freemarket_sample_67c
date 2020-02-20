@@ -88,6 +88,9 @@
               = link_to item_path(item) do
                 .item-item
                   = image_tag item.images[0].src.url, class: 'item-image',size: "220x150"
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner
+                      SOLD
                   .item-text
                     %p= item.title
                     .item-price-like
@@ -108,7 +111,7 @@
             .item
 
   = render "footer"
-
+-if user_signed_in?
   = link_to new_item_path, class:"purchaseBtn" do
     %span> 出品する
     .img
