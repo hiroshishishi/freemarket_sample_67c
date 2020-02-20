@@ -19,7 +19,7 @@
           - if user_signed_in?
             - if current_user.id == @item.seller_id
               = link_to "編集画面にすすむ", "#", class: "buyBtn"
-              = link_to "削除する", "#", class: "delete-Btn"
+              = link_to "商品を削除する","/items/#{@item.id}", method: :delete, class: "delete-Btn"
             - else
               - if @item.buyer_id.present?
                 .soldout
