@@ -24,12 +24,12 @@
                           .delete-box{:id => "delete_btn_#{i}"}
                             %span 削除
                   .label-content
-                    %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
-                      %pre.label-box__text クリックしてファイルをアップロード
-                  .hidden-content
                     = f.fields_for :images do |i|
-                      = i.file_field :src, id: "item_images_attributes_#{i.index}_image",  name: "item[images_attributes][#{i.index}][src]", class: 'hidden-field'
-                      = i.check_box :_destroy, data:{index: i.index}, class: "hidden-destroy", type:"display:none;"
+                      .label-item
+                        %label{for: "item_images_attributes_#{i.index}_image", class: "label-box", id: "label-box--0"}
+                          %pre.label-box__text クリックしてファイルをアップロード
+                          = i.file_field :src, id: "item_images_attributes_#{i.index}_image",  name: "item[images_attributes][#{i.index}][src]", class: 'hidden-field'
+                          = i.check_box :_destroy, data:{index: i.index}, class: "hidden-destroy", type:"display:none;"
                   %span#image_error.error_m
               .free-content
                 .free-content__title
@@ -150,3 +150,13 @@
                 = f.submit class: "content-sell__red-btn", id: "btn_submit", value: "出品する"
                 = link_to "もどる", "/", class: "content-sell__gray-btn"
     = render "subFooter"
+:css
+  .label-item:not(:last-child){
+    display:none;
+  }
+  .hidden-field {
+    display:none;
+  }
+  .hidden-destroy {
+    display:none;
+  }

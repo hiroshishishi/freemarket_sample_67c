@@ -29,9 +29,15 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-    item.destroy
-    redirect_to root_path
+    if item.destroy
+      redirect_to root_path
+      flash[:success] = '商品を削除しました'
+    else
+      redirect_to item_path
+      flash[:danger] = '商品削除に失敗しました'
+    end
   end
+
   def edit
     @item = Item.find(params[:id])
     @selected_grandchild_category = @item.category
@@ -56,6 +62,7 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    # binding.pry
     if @item.update(item_params)
       redirect_to root_path
     else
