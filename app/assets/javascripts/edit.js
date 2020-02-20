@@ -1,7 +1,42 @@
-if(document.URL.match(/new/)){
-  $(document).on('turbolinks:load', function(){
+if(document.URL.match(/edit/)){
+  $(document).on('turbolinks:load', ()=> { 
+  function setLabel() {
+    var prevContent = $('.label-content').prev();
+    labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
+    $('.label-content').css('width', labelWidth);
+  }
+  setLabel();
+  var count = $('.preview-box').length;
+        if (count == 5) { 
+          $('.label-content').hide();
+        }
+        setLabel();
+        if(count < 5){
+          $('.label-content').append(buildEDIT(count));
+        }
+  function buildEDIT(count) {
+    var html = `<div class="label-item">
+                <label class="label-box" for="item_images_attributes_${count}_image" id="label-box--0">
+                <pre class="label-box__text">クリックしてファイルをアップロード</pre>
+                <input id="item_images_attributes_${count}_image" name="item[images_attributes][${count}][src]" style="display:none;" class="hidden-field" type="file"></input>
+                </label>
+                </div>`
+    return html;
+  }
+
+  $('.preview-box').on('click', '.delete-box', function() {
+    const targetIndex = $(this).parent().parent().attr('id');
+    // 該当indexを振られているチェックボックスを取得する
+    const hiddenCheck = $(`.hidden-destroy[data-index="${targetIndex}"]`);
+    // もしチェックボックスが存在すればチェックを入れる
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
+
+    $(this).parent().remove();
+    $(`img[data-index="${targetIndex}"]`).remove();
+  });
+
     function buildHTML(count) {
-      var html = `<div class="preview-box" id="preview-box__${count}">
+      var html = `<div class="preview-box" id="${count}">
                   <div class="upper-box">
                   <img src="" alt="preview">
                   </div>
@@ -16,11 +51,7 @@ if(document.URL.match(/new/)){
                   </div>`
       return html;
     }
-    function setLabel() {
-      var prevContent = $('.label-content').prev();
-      labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
-      $('.label-content').css('width', labelWidth);
-    }
+
     $(document).on('change', '.hidden-field', function() {
       setLabel();
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
@@ -30,26 +61,27 @@ if(document.URL.match(/new/)){
       reader.readAsDataURL(file);
       reader.onload = function() {
         var image = this.result;
-        if ($(`#preview-box__${id}`).length == 0) {
+        if ($(`#${id}`).length == 0) {
           var count = $('.preview-box').length;
           var html = buildHTML(id);
           var prevContent = $('.label-content').prev();
           $(prevContent).append(html);
         }
-        $(`#preview-box__${id} img`).attr('src', `${image}`);
+        $(`#${id} img`).attr('src', `${image}`);
         var count = $('.preview-box').length;
         if (count == 5) { 
           $('.label-content').hide();
         }
         setLabel();
         if(count < 5){
-          $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
+          $('.label-content').append(buildEDIT(count));
         }
       }
     });
 
     $(document).on('click', '.edit_btn', function() {
       var count = $('.preview-box').length;
+      // console.log(c);
       setLabel(count);
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
@@ -65,14 +97,14 @@ if(document.URL.match(/new/)){
           var prevContent = $('.label-content').prev();
           $(prevContent).append(html);
         }
-        $(`#preview-box__${id} img`).attr('src', `${image}`);
+        $(`#${id} img`).attr('src', `${image}`);
         var count = $('.preview-box').length;
         if (count == 5) { 
           $('.label-content').hide();
         }
         setLabel();
         if(count < 5){
-          $('.label-box').attr({id: `label-box--${count}`,for: `item_images_attributes_${count}_image`});
+          $('.label-content').append(buildEDIT(count));
         }
       }
     });
@@ -90,8 +122,8 @@ if(document.URL.match(/new/)){
       }
       setLabel(count);
       if(id < 5){
-        $('.label-box').attr({id: `label-box--${id}`,for: `item_images_attributes_${id}_image`});
+        $('.label-content').append(buildEDIT(count));
       }
     });
-  });
+  })
 };

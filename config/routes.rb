@@ -8,15 +8,18 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   root to: 'items#index'
-  resources :items, only: [:index, :show, :new, :create] do
+  resources :items, only: [:index, :new, :create, :edit, :update, :show] do
     #Ajaxで動くアクションのルートを作成
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
     member do
+
       get 'paycheck'
       post 'pay'
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
   
