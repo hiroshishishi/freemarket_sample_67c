@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
+
   end
+  resources :searches, only: :index 
   resources :categories, only: [:new, :show]
   resources :signups, only: [:index, :create, :destroy] do
     get 'log_in'
