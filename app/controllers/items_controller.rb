@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :navi_parents, only: [:index]
   before_action :set_categories, only: [:index, :new, :create, :edit, :update]
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show :edit :update :destroy]
   def index
     @items = Item.all.limit(5)
     @item = @items.includes(:user).order("created_at DESC")
@@ -28,7 +28,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
     if item.destroy
       redirect_to root_path
       flash[:success] = '商品を削除しました'
@@ -39,7 +38,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     @selected_grandchild_category = @item.category
     @category_grandchild_array = @selected_grandchild_category.siblings.pluck(:id, :name)
 
@@ -61,8 +59,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
-    # binding.pry
     if @item.update(item_params)
       redirect_to root_path
     else

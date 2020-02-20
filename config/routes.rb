@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
   root to: 'items#index'
 
-  resources :items, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
+  resources :items do
   
     #Ajaxで動くアクションのルートを作成
     collection do
