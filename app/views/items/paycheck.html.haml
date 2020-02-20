@@ -7,19 +7,23 @@
         .topInner
           .topBox
             .image
+              = image_tag @item.images[0].src.url, height: "80px", width: "80px"
             .text
               %p.itemTitle
-
+                = @item.title
               %p.itemPrice
-                %span ¥5000
-                %span.fee （税込）送料込み
+                %span
+                  =  "¥#{@item.price}"
+                %span.fee
+                  =  "#{@item.fee.name}"
       .buyItemBottom
         .bottomInner
           .bottomBox
             .priceBox
               %ul
                 %li.priceTitle 支払い金額
-                %li.price ¥500
+                %li.price
+                  =  "¥#{@item.price}"
               %ul.point
                 = form_with(url: "#", local: true, method: :get, class: "checkBox") do |form|
                   = form.submit name: "check", type: "checkbox", class:"pointBox"
@@ -31,8 +35,11 @@
                   = link_to "変更する", "#", class: "changeBtn"
                 .payInfo
                   クレジットカード<br>
-                  ************2159<br>
-                  有効期限 08 / 17
+                  = "**** **** **** " + @default_card_information.last4
+                  <br>
+                  - exp_month = @default_card_information.exp_month.to_s
+                  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                  = "有効期限 " + exp_month + " / " + exp_year
                   .payIcon
             .userAddress
               .addressInner
@@ -40,9 +47,15 @@
                   %h3 配送先
                   = link_to "変更する", "#", class: "changeBtn"
                 .addressInfo
-                  〒000-0000<br>
-                  愛知県　名古屋市　緑区<br>
-                  コココココ１０１０
+                  = "〒#{@current_user.address.zip_code}"
+                  <br>
+                  = "#{@current_user.address.prefecture.name}"
+                  = "#{@current_user.address.city}"
+                  = "#{@current_user.address.street}"
+                  <br>
+                  = "#{@current_user.firstname}"
+                  = "#{@current_user.lastname}"
+
             = form_with method: :post, url: pay_item_path(@item), local: true do |f|
               = f.submit '購入する', class: "buyBtn"
   = render "items/subFooter"
