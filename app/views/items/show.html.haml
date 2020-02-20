@@ -17,8 +17,8 @@
             =  "¥#{@item.price}"
           %span.tax> （税込）#{@item.fee.name}
           - if user_signed_in?
-            - if current_user.id == @item.seller_id
-              = link_to "編集画面にすすむ", "#", class: "buyBtn"
+            - if current_user.id == @item.seller_id   
+              = link_to "編集画面にすすむ", edit_item_path, class: "buyBtn"
               = link_to "商品を削除する","item_path#{@item.id}", method: :delete, class: "delete-Btn"
             - else
               - if @item.buyer_id.present?
