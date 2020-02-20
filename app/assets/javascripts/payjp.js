@@ -1,6 +1,5 @@
 $(document).on('turbolinks:load', ()=> {
   if (document.getElementById("token_submit") != null) { //token_submitというidがnullの場合、下記コードを実行しない
-    console.log("ww");
     Payjp.setPublicKey("pk_test_ff391bc547ab6f91061eb220"); //ここに公開鍵を直書き
     $(document).on("click",".card-main__form__button", e => { //ボタンが押されたときに作動します
       e.preventDefault(); //ボタンを一旦無効化します
