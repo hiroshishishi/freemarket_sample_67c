@@ -35,14 +35,6 @@ if(document.URL.match(/edit/)){
       $(`img[data-index="${targetIndex}"]`).remove();
     });
 
-    // var count = $('.hidden-field').length;
-    // // console.log(count);
-    // // $('label[for="item_images_attributes_0_image"]').attr('for',`item_images_attributes_${count}_image`);
-    // if (count < 4){
-    //   $('.label-content').append(buildEDIT(count));
-    //   count ++;
-    // }
-
       function buildHTML(count) {
         var html = `<div class="preview-box" id="${count}">
                     <div class="upper-box">
