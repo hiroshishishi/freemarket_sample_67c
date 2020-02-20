@@ -82,6 +82,7 @@ $(document).on('turbolinks:load', function(){
       setLabel(count);
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
       $(`#preview-box__${id}`).remove();
+      $(`#${id}`).remove();
       $(`#item_images_attributes_${id}_image`).val("");
       var count = $('.preview-box').length;
       if (count == 4) {
