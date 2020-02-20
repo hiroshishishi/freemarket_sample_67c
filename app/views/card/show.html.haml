@@ -1,0 +1,27 @@
+.bodyUser 
+  = render 'items/header'
+  .user-main
+    = render 'user/my_left'
+    .my-right
+      .my-right__contents
+        %section.my-right__contents__head
+          %h2.card-credit-head 支払い方法
+        .card-credit
+          %section
+            %h3.credit-text クレジットカード一覧
+            %ul.credit-my-card
+              %li
+              .credit-my-card-form
+                .set-payment-image 
+                  = image_tag"card/visa.svg",size: "40x20"
+                .set-payment-number
+                  = "**** **** **** " + @default_card_information.last4
+                .set-payment-deadline
+                  - exp_month = @default_card_information.exp_month.to_s
+                  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                  = "有効期限 " + exp_month + " / " + exp_year
+                = link_to "削除する", "#", class:"card-delete",method: "delete"
+          .how-payment
+            .how-payment-area
+              %span 支払い方法について
+  = render 'items/footer'

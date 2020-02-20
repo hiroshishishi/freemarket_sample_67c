@@ -1,0 +1,52 @@
+.bodyUser 
+  = render 'items/header'
+  .user-main
+    = render 'user/my_left'
+    .my-right
+      %section.my-card
+        %h2.my-card__head クレジットカード情報入力
+        = form_with method: :post, url: pay_card_index_path, id: 'charge-form', name: "inputForm", local: true do |f|
+          .card-main
+            .card-main__form
+              .card-main__form__part
+                = f.label :カード番号,class: 'label', maxlength: "16", type: "text"
+                %span.hissu 必須
+                = f.number_field :card_nuber, class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+                %br
+                %ul.credit-mark
+                  %li.credit-mark__each
+                    = image_tag"card/visa.svg",size: "40x20"
+                  %li.credit-mark__each
+                    = image_tag"card/master-card.svg",size: "40x20"
+                  %li.credit-mark__each
+                    = image_tag"card/saison-card.svg",size: "40x20"
+                  %li.credit-mark__each
+                    = image_tag"card/american_express.svg",size: "40x20"
+                  %li.credit-mark__each
+                    = image_tag"card/dinersclub.svg",size: "40x20"
+                  %li.credit-mark__each
+                    = image_tag"card/discover.svg",size: "40x20"
+              .card-main__form__part
+                = f.label :有効期限, class: 'label'
+                %span.hissu 必須
+                .credit-form
+                  = f.select :exp_month, [["",0],["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'input-deadline', name: "exp_month", id: "exp_month"
+                  %i.fas.fa-angle-down
+                %span 月
+                .credit-form
+                  = f.select :exp_year, [["",0],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'input-deadline', name: "exp_year", id: "exp_year"
+                  %i.fas.fa-angle-down
+                %span 年
+                %br
+              .card-main__form__part
+                = f.label :セキュリティーコード, class: 'label'
+                %span.hissu 必須
+                = f.number_field :cvc, type: 'text', class: 'cvc', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4", id: "cvc"
+                .signup-number
+                  .signup-number__text
+                    %span.number-question ?
+                    #text カード裏面の番号とは?
+                #card_token
+              %button.card-main__form__button
+                = f.submit '追加する', id: 'token_submit'
+  = render 'items/footer'
