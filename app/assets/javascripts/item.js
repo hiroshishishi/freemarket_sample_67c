@@ -19,14 +19,8 @@ $(document).on('turbolinks:load', function(){
 
 $(document).on('turbolinks:load', function(){
   $(function() {
-    $('input:submit[id="btn_submit"]').click(function() {
+    $('#btn_submit').click(function() {
       $(button).prop('disabled', false);
     });
   });
 })
-// $(function(){
-// 	$('input:submit[id="btn_submit"]').click(function(){
-// 		$(this).prop('disabled',false);//ボタンを有効化する
-// 		$(this).closest('form').submit();//フォームを送信する
-// 	});
-// });
