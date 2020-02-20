@@ -1,4 +1,5 @@
 if(document.URL.match(/edit/)){
+  $(document).on('turbolinks:load', ()=> { 
   function setLabel() {
     var prevContent = $('.label-content').prev();
     labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
@@ -124,4 +125,5 @@ if(document.URL.match(/edit/)){
         $('.label-content').append(buildEDIT(count));
       }
     });
+  })
 };
