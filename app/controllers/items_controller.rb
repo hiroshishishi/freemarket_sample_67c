@@ -6,8 +6,8 @@ class ItemsController < ApplicationController
   require 'payjp'
 
   def index
-    @items = Item.all.limit(5)
-    @item = @items.includes(:user).order("created_at DESC")
+    # @items = Item.all.limit(5)
+    @items = Item.order("created_at DESC").limit(5)
   end
 
   def new
