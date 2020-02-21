@@ -1528,10 +1528,13 @@ aside {
   nav{
     border-style: solid;
     border-width: 0;
-    color: #fff;
     li{
       display: inline-block;
       font-size: 12px;
+      a{
+        color: #fff;
+        text-decoration: none;
+      }
     }
     .sub{
       margin: 0 0 0 16px;
