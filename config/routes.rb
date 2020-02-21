@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     end
 
   end
-  resources :searches, only: :index 
   resources :categories, only: [:new, :show]
   resources :signups, only: [:index, :create, :destroy] do
     get 'log_in'

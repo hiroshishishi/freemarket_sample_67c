@@ -27,8 +27,4 @@ class Item < ApplicationRecord
     greater_than: 300, less_than: 10000000
     }
   validates  :seller,  presence: true
-  def self.search(search)
-    return Item.all unless search
-    Item.where('title LIKE(?)', "%#{search}%")
-  end
 end
