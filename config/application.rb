@@ -17,3 +17,7 @@ module FreemarketSample67c
     # the framework and any gems in your application.
   end
 end
+
+class Application < Rails::Application
+  config.action_view.automatically_disable_submit_tag = false # この行を追加
+end

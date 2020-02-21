@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root to: 'items#index'
 
   resources :items do
+    resources :comments, only: [:create]
   
     #Ajaxで動くアクションのルートを作成
     collection do

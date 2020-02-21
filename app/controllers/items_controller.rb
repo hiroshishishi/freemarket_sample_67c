@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :navi_parents, only: [:index]
   before_action :set_categories, only: [:index, :new, :create, :edit, :update]
-  before_action :set_item, only: [:show, :paycheck, :pay, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :paycheck, :pay]
 
   require 'payjp'
 
@@ -77,6 +77,8 @@ class ItemsController < ApplicationController
   def show
     @seller_id = User.find(@item.seller_id)
     @category = @item.category
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
     if user_signed_in?
       @card = Card.find_by(user_id: current_user.id)
     end

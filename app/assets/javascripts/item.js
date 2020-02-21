@@ -16,11 +16,3 @@ $(document).on('turbolinks:load', function(){
     })
   })
 })
-
-$(document).on('turbolinks:load', function(){
-  $(function() {
-    $('#btn_submit').click(function() {
-      $(button).prop('disabled', false);
-    });
-  });
-})
