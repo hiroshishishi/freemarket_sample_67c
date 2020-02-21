@@ -1,7 +1,7 @@
 .header
   .headerContents
     .headerMain
-      = link_to "/" do
+      = link_to  '/items'do
         %h1.icon
       = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
         = form.text_field :keyword, placeholder: "キーワードから探す", class: "search-input"

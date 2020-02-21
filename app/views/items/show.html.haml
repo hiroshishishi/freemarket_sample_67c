@@ -18,7 +18,7 @@
           %span.tax> （税込）#{@item.fee.name}
           - if user_signed_in?
             - if current_user.id == @item.seller_id
-              = link_to "編集画面にすすむ", "#", class: "buyBtn"
+              = link_to "編集画面にすすむ", edit_item_path, class: "buyBtn"
               = link_to "削除する", "#", class: "delete-Btn"
             - else
               - if @item.buyer_id.present?
