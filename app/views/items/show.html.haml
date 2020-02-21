@@ -28,7 +28,7 @@
                 -if @card.present?
                   = link_to "購入画面にすすむ", "paycheck_item_path", class: "buyBtn"
                 - else
-                  = link_to "支払い情報を登録してください", "card_path", class: "buyBtn"
+                  = link_to "支払い情報を登録してください", card_path(@card.id), class: "buyBtn"
           - else
             = link_to "ログインしてください", "#", class: "buyBtn"   
         

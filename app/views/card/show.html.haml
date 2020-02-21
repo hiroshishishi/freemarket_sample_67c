@@ -21,9 +21,9 @@
                   - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
                   = "有効期限 " + exp_month + " / " + exp_year
                 -# = link_to "削除する", delete_card_index_path, class: "card-delete", method: "delete"
-                = form_with method: :post, url:delete_card_index_path, name: "charge-form", id: 'charge-form', local: true do |f|
+                = form_with method: :post, url: delete_card_index_path, name: "charge-form", id: 'charge-form', local: true do |f|
                   %input{ type: "hidden", name: "card_id", value: "" }
-                  %button.card-delete 
+                  %button.card-delete
                     %a 削除する
           .how-payment
             .how-payment-area
