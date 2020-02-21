@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   root to: 'items#index'
-  resources :items, only: [:index, :new, :create, :edit, :update, :show] do
+
+  resources :items do
+  
     #Ajaxで動くアクションのルートを作成
     collection do
       get 'get_category_children', defaults: { format: 'json' }
