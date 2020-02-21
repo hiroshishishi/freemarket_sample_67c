@@ -17,18 +17,18 @@
             =  "¥#{@item.price}"
           %span.tax> （税込）#{@item.fee.name}
           - if user_signed_in?
-            - if current_user.id == @item.seller_id
-              = link_to "編集画面にすすむ", "#", class: "buyBtn"
-              = link_to "削除する", "#", class: "delete-Btn"
+            - if current_user.id == @item.seller_id   
+              = link_to "編集画面にすすむ", edit_item_path, class: "buyBtn"
+              = link_to "商品を削除する",item_path(@item.id), method: :delete, class: "delete-Btn"
             - else
               - if @item.buyer_id.present?
                 .soldout
                 売り切れました
               - else
                 -if @card.present?
-                  = link_to "購入画面にすすむ", "#", class: "buyBtn"
+                  = link_to "購入画面にすすむ", "paycheck_item_path", class: "buyBtn"
                 - else
-                  = link_to "支払い情報を登録してください", "#", class: "buyBtn"
+                  = link_to "支払い情報を登録してください", "card_path", class: "buyBtn"
           - else
             = link_to "ログインしてください", "#", class: "buyBtn"   
         

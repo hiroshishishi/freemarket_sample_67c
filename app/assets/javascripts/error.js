@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function(){
 });
 
 $(document).on('turbolinks:load', function(){
-  function input_check(){
+  $(function input_check(){
     var result = true;
 
     // エラー用装飾のためのクラスリセット
@@ -35,7 +35,7 @@ $(document).on('turbolinks:load', function(){
     $("#price_error").empty();
 
     // 入力内容セット
-    var image   = $("#label-box--0").val();
+    var image   = $("#preview-content").val();
     var title   = $("#title").val();
     var text  = $("#text").val();
     var category = $("#parent_category").val();
@@ -120,5 +120,5 @@ $(document).on('turbolinks:load', function(){
     }
 
     return result;
-  };
+  });
 });
