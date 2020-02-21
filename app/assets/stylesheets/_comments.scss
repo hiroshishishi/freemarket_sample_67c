@@ -1,0 +1,32 @@
+.comment-detail {
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  width: 760px;
+  height: 400px;
+  margin: 10px auto;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #fff;
+  h4 {
+    columns: #000000;;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+  .comments {
+    display: block;
+    height: 250px;
+    margin: 10px auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: slategray;
+    overflow: scroll;
+    p {
+      padding-left: 10px;
+      display: block;
+      border-radius: 3px;
+      strong {
+        color: black;
+      }
+    }
+  }
+}

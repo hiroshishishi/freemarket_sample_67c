@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :navi_parents, only: [:index]
   before_action :set_categories, only: [:index, :new, :create, :edit, :update]
-  before_action :set_item, only: [:show :edit :update :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   def index
     @items = Item.all.limit(5)
     @item = @items.includes(:user).order("created_at DESC")
@@ -69,6 +69,8 @@ class ItemsController < ApplicationController
   def show
     @seller_id = User.find(@item.seller_id)
     @category = @item.category
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   private
