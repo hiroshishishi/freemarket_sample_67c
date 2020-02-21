@@ -25,7 +25,7 @@ $(document).on('turbolinks:load', function(){
 		$("#price_error").empty();
 
 		// 入力内容セット
-		var image   = $("#preview-content").val();
+		var image   = $(".preview-content").val();
 		var title   = $("#title").val();
 		var text  = $("#text").val();
 		var category = $("#parent_category").val();
