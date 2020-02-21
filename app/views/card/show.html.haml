@@ -20,7 +20,7 @@
                   - exp_month = @default_card_information.exp_month.to_s
                   - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
                   = "有効期限 " + exp_month + " / " + exp_year
-                = link_to "削除する", "#", class:"card-delete",method: "delete"
+                = link_to "削除する", class: "card-delete", method: "delete"
           .how-payment
             .how-payment-area
               %span 支払い方法について
