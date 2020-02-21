@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :card, only: [:new, :show, :index, :destroy] do
+  resources :card, only: [:new, :show, :index] do
     collection do
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
