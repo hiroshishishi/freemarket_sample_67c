@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
     if @item.destroy
       redirect_to root_path
       flash[:success] = '商品を削除しました'
@@ -41,6 +42,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
     @selected_grandchild_category = @item.category
     @category_grandchild_array = @selected_grandchild_category.siblings.pluck(:id, :name)
 
@@ -50,7 +52,9 @@ class ItemsController < ApplicationController
     @selected_parent_category = @selected_grandchild_category.root
     @category_parent_array = @selected_parent_category.siblings.pluck(:id, :name)
 
-    redirect_to root_path unless @item.seller_id == current_user.id
+    unless @item.seller_id == current_user.id
+      redirect_to root_path
+    end
 
     def get_category_children
       @category_children = Category.find(params[:parent_name]).children
@@ -62,6 +66,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -72,6 +77,7 @@ class ItemsController < ApplicationController
   def show
     @seller_id = User.find(@item.seller_id)
     @category = @item.category
+
   end 
 
   def paycheck
