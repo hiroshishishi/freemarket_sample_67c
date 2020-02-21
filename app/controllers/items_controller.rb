@@ -90,15 +90,15 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    @card = Card.where(user_id: current_user.id).first
+    @card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = Rails.application.credentials[:payjp][:payjp_secret_key]
     Payjp::Charge.create(
     amount:  @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
     customer:  @card.customer_id, #顧客ID
     currency:  'jpy', #日本円
   )
-  @item_buyer = Item.find(params[:id])
-  @item_buyer.update( buyer_id: current_user.id)
+  @buyer_item = Item.find(params[:id])
+  @buyer_item.update( buyer_id: current_user.id)
   redirect_to root_path #完了画面に移動
   end
 
