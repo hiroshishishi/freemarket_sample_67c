@@ -88,19 +88,17 @@
               = link_to item_path(item) do
                 .item-item
                   = image_tag item.images[0].src.url, class: 'item-image',size: "220x150"
-                  .items-box_photo__sold
-                    .items-box_photo__sold__inner
-                      SOLD
-                  .item-text
-                    %p= item.title
-                    .item-price-like
-                      %p="¥#{item.price}"
-                      .like-counts ★０
-                    %p.tax-included-text  (税込)
-                -if item.buyer_id.present? 
-                  .items-box_photo__sold
-                    .items-box_photo__sold__inner
-                      SOLD
+                  -if item.buyer_id.present? 
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner
+                        SOLD OUT
+                  -else
+                    .item-text
+                      %p= item.title
+                      .item-price-like
+                        %p="¥#{item.price}"
+                        .like-counts ★０
+                      %p.tax-included-text  (税込)
     .pickupContent
       %h2.pickupContent__title
         ピックアップブランド
