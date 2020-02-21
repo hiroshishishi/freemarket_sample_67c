@@ -127,9 +127,9 @@
           background-color: white;
           border-top: 1px solid #f5f5f5;
           section{
-            text-align: center;
             font-size: 16px;
-            color: #ccc;
+            color: #333333;
+            border-bottom: 1px solid #eee;
           }
         }
         .credit-text{
@@ -137,9 +137,34 @@
           margin: 0 auto;
           font-size: 16px;
         }
-
-        .card-delete{
-          float: right;
+        .credit-my-card{
+          max-width: 320px;
+          margin: 0 auto;
+        }
+        .credit-my-card-form{
+          position: relative;
+          padding: 24px 0;
+          .card-delete{
+            font-size: 14px;
+            float: right;
+            text-decoration: none;
+            color: #EA352D;
+            padding: 4px 6px;
+            background: #fff;
+            border-radius: 3px;
+            border: 1px solid #ea352d;
+            position: absolute;
+            right: 0%;
+            top: 10%;
+          }
+        }
+        .how-payment{
+          .how-payment-area{
+            display: block;
+            margin: 40px 0 0;
+            text-align: right;
+            color: #0099E8;
+          }
         }
         .item-tab{
           border: 0;
